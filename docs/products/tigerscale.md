@@ -129,6 +129,12 @@ The full costed bill of materials lives in the
 
 *[Interactive schematic in Cirkit Designer](https://app.cirkitdesigner.com/project/c6aa6c0a-9462-498f-8923-9ad4454e0e69)*
 
+### Troubleshooting
+
+**No COM port detected for the ESP32-S3 in the [web installer](https://tigertag-project.github.io/Tiger-Scale-V3/)?**
+
+A driver might be missing for your system. [Follow the driver install guide](../tutorials/tigerscale-serial-port-driver.md).
+
 ## Yours to make and to sell
 
 **Anyone can manufacture and sell TigerScale hardware. No licence fee, no

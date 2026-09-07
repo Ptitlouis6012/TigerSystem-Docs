@@ -1,5 +1,5 @@
 ---
-sourceHash: eeea9a5db85c9602b051873febcd4a1efdd89d1db00775d1af4e69f3a56f770b
+sourceHash: 99a114b3f076c157979f1a5f1649be27dc86a00c42d648bfbc825b98c34b55b1
 sourcePath: docs/products/tigerscale.md
 ---
 
@@ -142,6 +142,12 @@ La nomenclature complète et chiffrée est dans le
 <img src="../assets/tigerscale-wiring-hsu.jpg" width="100%" alt="Schéma de câblage de la TigerScale V3" />
 
 *[Schéma interactif sur Cirkit Designer](https://app.cirkitdesigner.com/project/c6aa6c0a-9462-498f-8923-9ad4454e0e69)*
+
+### Dépannage
+
+**Aucun port COM détecté pour l'ESP32-S3 dans l'[installateur web](https://tigertag-project.github.io/Tiger-Scale-V3/) ?**
+
+Il manque peut-être un pilote pour votre système. [Suivez le guide d'installation du pilote](../tutorials/tigerscale-serial-port-driver.md).
 
 ## À vous de la fabriquer, et de la vendre
 
