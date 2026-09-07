@@ -1,5 +1,5 @@
 ---
-sourceHash: 6ad30f457f32851690e729801d310fbe30a14b8b818d6301f659fbf9f2b5adee
+sourceHash: edf5d683cff9948e87255438adaefd751b10eba3c03233e7a9e811277c8a4491
 sourcePath: docs/products/tigerspool.md
 ---
 
@@ -104,6 +104,13 @@ Les **quatre fils de liaison sont fournis avec le PN532** — 3V3, GND, TX, RX,
 et c'est tout le faisceau. Pas d'adaptateur de niveau (le PN532 fonctionne en
 3V3, comme la carte), pas de batterie (le boîtier est posé à côté d'une
 imprimante déjà branchée).
+
+<img src="../assets/tigerspool-wiring.jpg" width="600" alt="Câblage : la carte ESP32-S3-Touch-LCD-2 vers le PN532 — 3V3 vers VCC, GND vers GND, TX vers SDA, RX vers SCL" />
+
+*Tout le faisceau. Sur le PN532, les deux broches de données sont sérigraphiées
+`SDA` et `SCL` — en mode HSU, ce sont elles qui portent l'UART, c'est donc là
+que vont TX et RX.
+[Schéma interactif](https://app.cirkitdesigner.com/project/7a6c0887-8e44-4303-81b3-be51aab4b40a).*
 
 **Le flashage se fait depuis le navigateur** — branchez la carte, cliquez sur
 Install, attendez une minute. Chrome, Edge ou Opera sur un ordinateur ; Safari

@@ -95,6 +95,12 @@ The **four jumper wires come with the PN532** — 3V3, GND, TX, RX, and that is
 the whole harness. No level shifters (the PN532 runs at 3V3, same as the
 board), no battery (the box sits next to a printer that is already plugged in).
 
+<img src="../assets/tigerspool-wiring.jpg" width="600" alt="Wiring: the ESP32-S3-Touch-LCD-2 board to the PN532 — 3V3 to VCC, GND to GND, TX to SDA, RX to SCL" />
+
+*The whole harness. On the PN532 the two data pins are silkscreened `SDA` and
+`SCL` — in HSU mode they carry the UART, so that is where TX and RX go.
+[Interactive schematic](https://app.cirkitdesigner.com/project/7a6c0887-8e44-4303-81b3-be51aab4b40a).*
+
 **Flashing is done from the browser** — plug the board in, click Install, wait
 a minute. Chrome, Edge or Opera on a desktop; Safari and Firefox do not
 implement WebSerial, and no mobile browser does.
