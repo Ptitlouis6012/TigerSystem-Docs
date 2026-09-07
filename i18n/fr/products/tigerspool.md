@@ -1,5 +1,5 @@
 ---
-sourceHash: edf5d683cff9948e87255438adaefd751b10eba3c03233e7a9e811277c8a4491
+sourceHash: 0151462747b928a6030bbb9ba159f7f989f37f0a3aa531ac84c7530c3aa3891b
 sourcePath: docs/products/tigerspool.md
 ---
 
@@ -9,7 +9,7 @@ sourcePath: docs/products/tigerspool.md
 emplacement, et le filament y est inscrit — sur n'importe quelle marque
 d'imprimante.**
 
-<img src="../assets/tigerspool.jpg" width="420" alt="TigerSpool — un boîtier à écran tactile de 2 pouces avec lecteur NFC, posé à côté d'une imprimante 3D" />
+<img src="../assets/tigerspool.jpg" width="420" alt="Le logo du projet TigerSpool" />
 
 Votre imprimante tient déjà une liste d'emplacements. Votre bobine porte déjà
 sa propre [identité](../concepts/universal-filament-identity.md). TigerSpool,

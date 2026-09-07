@@ -3,7 +3,7 @@
 **A small box beside the printer. Hold a spool against it, tap a slot, and the
 filament is written into that slot — on any brand of printer.**
 
-<img src="../assets/tigerspool.jpg" width="420" alt="TigerSpool — a 2-inch touchscreen box with an NFC reader, standing beside a 3D printer" />
+<img src="../assets/tigerspool.jpg" width="420" alt="The TigerSpool project logo" />
 
 Your printer already keeps a list of slots. Your spool already carries its own
 [identity](../concepts/universal-filament-identity.md). TigerSpool is the thirty
