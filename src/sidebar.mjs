@@ -17,6 +17,7 @@ export const sidebar = [
   group('Start here', 'Commencer ici', [
     { label: 'Home', translations: { fr: 'Accueil' }, link: '/' },
     { slug: 'vision/why-tigersystem' },
+    { slug: 'guides/start-for-free' },
     { slug: 'tutorials/first-smart-spool' },
     { slug: 'faq' },
   ]),
@@ -76,7 +77,6 @@ export const sidebar = [
     { slug: 'tutorials/bambu-lab-x1-h2-p2-series', label: 'Bambu Lab X1/X1E/H2/P2: LAN mode', translations: { fr: 'Bambu Lab X1/X1E/H2/P2 : mode LAN' } },
     { slug: 'tutorials/elegoo-cc2-lan-mode', label: 'Elegoo CC2: LAN mode', translations: { fr: 'Elegoo CC2 : mode LAN' } },
     { slug: 'guides' },
-    { slug: 'guides/start-for-free' },
     { slug: 'guides/twin-tag-pair' },
   ]),
 
