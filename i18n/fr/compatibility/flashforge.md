@@ -1,5 +1,5 @@
 ---
-sourceHash: 7e1e09221474393b579f61e7cbbe031c66bc291ce96ceed4e841fbe387bb24aa
+sourceHash: d62ceaaec694fe1a9a287aec0b13ccf35135a12331757c2903098287e9271eb9
 sourcePath: docs/compatibility/flashforge.md
 ---
 
@@ -26,8 +26,9 @@ pour l'utilisateur et sans aucune modification de la machine.**
 
 ## Le déroulé
 
-1. **Ajoutez l'imprimante** — découverte automatique sur le réseau local (multicast UDP)
- ou ajout par IP.
+1. **Ajoutez l'imprimante** — trouvée par le scan réseau (multicast UDP), où il
+ ne faut que son Printer ID, ou ajoutée à la main avec son adresse IP, son
+ numéro de série et son Printer ID.
 2. **Scannez une bobine** — avec votre téléphone (ou un lecteur de bureau) ; elle arrive
  dans votre inventaire.
 3. **Affectez-la à un emplacement de la station matière** — **un scan, un clic** depuis
@@ -37,12 +38,23 @@ pour l'utilisateur et sans aucune modification de la machine.**
 4. **En direct** — températures, avancement de la tâche et flux de la caméra MJPEG dans
  la vue des imprimantes.
 
-## Se connecter par adresse IP
+## Ajouter l'imprimante
 
-FlashForge n'a pas d'option cloud, et la découverte automatique sur le réseau local ne trouve pas
-toujours chaque imprimante. Dans ce cas, ajoutez-la par IP — il faudra relever son numéro de série,
-son adresse IP et son Printer ID sur l'écran tactile au préalable. Choisissez votre modèle ci-dessous
-pour la marche à suivre exacte.
+Tiger Studio a besoin de trois éléments pour dialoguer avec une FlashForge : son
+**adresse IP**, son **numéro de série** et un **mot de passe** — que l'imprimante
+elle-même appelle le **Printer ID**. Une seule valeur, deux noms : ce que l'écran
+tactile affiche comme Printer ID est ce qu'on saisit dans le champ mot de passe
+de Tiger Studio.
+
+Le nombre de valeurs à saisir dépend de la façon dont l'imprimante est trouvée :
+
+| Comment | Ce que vous saisissez |
+|---|---|
+| **Scan réseau** — Tiger Studio trouve l'imprimante sur votre réseau local | le **Printer ID** seulement ; le scan fournit l'IP et le numéro de série |
+| **À la main** — le scan ne l'a pas trouvée | **adresse IP + numéro de série + Printer ID** |
+
+Il n'existe pas de voie cloud, c'est donc toujours l'un de ces deux cas.
+Choisissez votre modèle pour voir où se trouve chaque valeur sur l'écran tactile.
 
 <div class="ts-model-picker">
 <a href="../tutorials/flashforge-connection-tutorial.md"><img src="../assets/flashforge-connection-tutorial/models/ad5x.png" alt="Adventurer 5X" /><span>Adventurer 5X</span></a>
