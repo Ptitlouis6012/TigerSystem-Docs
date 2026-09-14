@@ -133,7 +133,10 @@ function slug(heading) {
     .toLowerCase()
     .replace(/[^\p{L}\p{N}\s-]/gu, '')
     .trim()
-    .replace(/\s+/g, '-');
+    // One hyphen per space, not per run of spaces: "Printer link — Live" loses
+    // its dash and keeps both spaces, so Starlight writes `printer-link--live`.
+    // Collapsing the run got 102 of this site's 544 headings wrong.
+    .replace(/\s/g, '-');
 }
 
 function headingSlugs(lines) {
