@@ -1,5 +1,5 @@
 ---
-sourceHash: 99a114b3f076c157979f1a5f1649be27dc86a00c42d648bfbc825b98c34b55b1
+sourceHash: 418bc362f46f5479095842d8194aec88e9240b83343d87e04cabf4e0a5ba65d3
 sourcePath: docs/products/tigerscale.md
 ---
 
@@ -56,6 +56,11 @@ C'est celle qu'il faut construire.
 
 ## En construire une
 
+> **L'électronique, très peu pour vous ?** Une balance USB et un
+> [TigerPOD](./tigerpod.md) font le même travail sans rien à câbler ni à
+> flasher — c'est
+> [l'alternative officielle sans électronique](#une-balance-usb-et-un-tigerpod-sans-électronique).
+
 La balance est un montage DIY, et les étapes qu'on redoute ne sont pas
 difficiles :
 
@@ -88,7 +93,7 @@ Les pièces sont courantes :
 <div class="ts-photo-pair">
 <figure>
 <img src="../assets/tigerscale-board-esp32-s3-touch-lcd.jpg" alt="Carte Waveshare ESP32-S3-Touch-LCD-3.5B" />
-<figcaption><strong>Les deux variantes fonctionnent, mais avec un firmware différent.</strong> Lisez la sérigraphie : <strong>-3.5B</strong> ou <strong>-3.5</strong>. L'installateur web demande laquelle vous avez ; le câblage et le boîtier sont identiques dans les deux cas.</figcaption>
+<figcaption><strong>Les deux variantes fonctionnent, mais avec un firmware différent.</strong> Lisez la sérigraphie : <strong>-3.5B</strong> ou <strong>-3.5</strong>. L'installateur web demande laquelle vous avez ; le câblage et le boîtier sont identiques dans les deux cas. Flashez le mauvais firmware et la balance démarre parfaitement mais ne voit jamais une puce, sans rien à l'écran pour dire pourquoi.</figcaption>
 </figure>
 <figure>
 <img src="../assets/tigerscale-load-cell-hx711.jpg" alt="Cellule de charge 5 kg et carte amplificatrice HX711" />
@@ -192,15 +197,33 @@ Les trois sont entièrement open source (MIT) et faites de composants
 courants — la preuve vivante qu'un ESP32 et un module de lecture NFC (classe
 PN532 / RC522) suffisent à construire un appareil qui lit les TigerTag.
 
-## Balances tierces — USB HID (série DYMO M et compagnie)
+## Une balance USB et un TigerPOD, sans électronique
+
+<img src="../assets/tigerscale-dymo-tigerpod.jpg" width="100%" alt="Un TigerPOD posé sur une balance DYMO, en train de peser une bobine identifiée" />
+
+L'**alternative officielle pour qui ne veut pas construire de balance**. Une
+balance USB standard et un [TigerPOD](./tigerpod.md), tous deux branchés sur
+l'ordinateur, et Tiger Studio fait le reste — rien à souder, à câbler ni à
+flasher.
+
+1. **Branchez la balance sur votre ordinateur** en USB.
+2. **Posez le TigerPOD dessus** — le Mini ou l'original.
+3. **Faites la tare**, TigerPOD posé.
+4. **Ouvrez Tiger Studio.**
+5. **Posez une bobine sur le TigerPOD.** Il lit ses puces et Tiger Studio
+ ouvre sa fiche.
+6. **La balance la pèse**, et Tiger Studio met à jour le poids de la bobine
+ tout seul.
+
+### Quelles balances fonctionnent
 
 <img src="../assets/dymo-m5.jpg" width="420" alt="La DYMO M5 — une balance postale USB HID, boutons marche/tare/hold et petit écran LCD" />
 
-TigerScale est la balance maison — mais Tiger Studio lit aussi les
-**périphériques USB « HID Scale »** standards (page d'usage HID `0x8D`, usage
-`0x20`) : à commencer par la **DYMO M5** et le reste de la série M de DYMO
-(M10, M25… même protocole), et **toute HID Scale conforme**, quelle que soit
-la marque. Une option tierce, pas un produit Tiger.
+Tiger Studio lit les **périphériques USB « HID Scale »** standards (page
+d'usage HID `0x8D`, usage `0x20`) : à commencer par la **DYMO M5** et le reste
+de la série M de DYMO (M10, M25… même protocole), et **toute HID Scale
+conforme**, quelle que soit la marque. La balance est un matériel tiers, pas un
+produit Tiger ; le montage autour d'elle est officiel et pris en charge.
 
 Protocole, validé sur du matériel réel — des *Scale Data Reports* de 6 octets
 à environ 1 Hz :
@@ -227,20 +250,6 @@ l'unité `0x00`.
 |---|---|
 | Firebase (base de données du compte) | Écrit le poids en direct dans le compte de l'utilisateur |
 | Tiger Studio / Connect | Affichent le poids en direct ; supervision de l'état |
-
-## Exemple d'utilisation recommandé
-
-<img src="../assets/tigerscale-dymo-tigerpod.jpg" width="100%" alt="Un TigerPOD posé sur une balance DYMO, en train de peser une bobine identifiée" />
-
-1. **Branchez votre balance DYMO à votre ordinateur en USB.**
-2. **Posez le TigerPOD Mini ou l'original sur la balance.**
-3. **Effectuez une tare de la balance DYMO.**
-4. **Ouvrez Tiger Studio Manager.**
-5. **Posez une bobine sur le TigerPOD.**
-6. **Le TigerPOD lit les puces NTAG de la bobine et ouvre sa fiche dans Tiger
- Studio Manager.**
-7. **La balance DYMO pèse la bobine — Tiger Studio Manager met à jour son
- poids automatiquement.**
 
 ## Liens
 

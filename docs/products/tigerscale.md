@@ -46,6 +46,10 @@ This is the one to build.
 
 ## Building one
 
+> **Not into electronics?** A USB scale and a [TigerPOD](./tigerpod.md) do the
+> same job with nothing to wire or flash — the
+> [official no-electronics alternative](#a-usb-scale-and-a-tigerpod-no-electronics).
+
 The scale is a DIY build, and the steps people expect to be hard are not:
 
 1. **Print the enclosure.** One `.3mf` Bambu Studio project with the plates
@@ -75,7 +79,7 @@ The parts are commodity:
 <div class="ts-photo-pair">
 <figure>
 <img src="../assets/tigerscale-board-esp32-s3-touch-lcd.jpg" alt="Waveshare ESP32-S3-Touch-LCD-3.5B board" />
-<figcaption><strong>Both variants work, but they need different firmware.</strong> Read the silkscreen: <strong>-3.5B</strong> or <strong>-3.5</strong>. The web installer asks which one you have; the wiring and the case are the same either way.</figcaption>
+<figcaption><strong>Both variants work, but they need different firmware.</strong> Read the silkscreen: <strong>-3.5B</strong> or <strong>-3.5</strong>. The web installer asks which one you have; the wiring and the case are the same either way. Flash the wrong build and the scale starts up perfectly but never sees a tag, with nothing on screen to say why.</figcaption>
 </figure>
 <figure>
 <img src="../assets/tigerscale-load-cell-hx711.jpg" alt="5 kg load cell and HX711 amplifier board" />
@@ -176,15 +180,32 @@ All three are fully open source (MIT) on commodity parts — the living proof
 that an ESP32 and an NFC reader module (PN532 / RC522 class) are enough to
 build a TigerTag-reading device.
 
-## Third-party scales — USB HID (DYMO M series and friends)
+## A USB scale and a TigerPOD, no electronics
+
+<img src="../assets/tigerscale-dymo-tigerpod.jpg" width="100%" alt="A TigerPOD sitting on a DYMO scale, weighing a tagged spool" />
+
+The **official alternative for anyone who does not want to build a scale**. A
+standard USB scale and a [TigerPOD](./tigerpod.md), both plugged into the
+computer, and Tiger Studio does the rest — nothing to solder, wire or flash.
+
+1. **Plug the scale into your computer** over USB.
+2. **Set the TigerPOD on top of it** — the Mini or the original.
+3. **Tare the scale**, with the TigerPOD on it.
+4. **Open Tiger Studio.**
+5. **Put a spool on the TigerPOD.** It reads the spool's chips and Tiger
+ Studio opens its card.
+6. **The scale weighs it**, and Tiger Studio updates the spool's weight on its
+ own.
+
+### Which scales work
 
 <img src="../assets/dymo-m5.jpg" width="420" alt="The DYMO M5 — a USB HID postal scale, power/tare/hold buttons and a small LCD" />
 
-TigerScale is the first-party scale — but Tiger Studio also reads standard
-**USB "HID Scale" devices** (HID usage page `0x8D`, usage `0x20`): starting
-with the **DYMO M5** and the rest of the DYMO M series (M10, M25… same
-protocol), and **any compliant HID Scale**, whatever the brand. A third-party
-option, not a Tiger product.
+Tiger Studio reads standard **USB "HID Scale" devices** (HID usage page
+`0x8D`, usage `0x20`): starting with the **DYMO M5** and the rest of the DYMO M
+series (M10, M25… same protocol), and **any compliant HID Scale**, whatever the
+brand. The scale is third-party hardware, not a Tiger product; the setup around
+it is official and supported.
 
 Protocol, validated on real hardware — 6-byte *Scale Data Reports* at ~1 Hz:
 
@@ -208,20 +229,6 @@ right after a tare reports unit `0x00`.
 |---|---|
 | Firebase (account database) | Writes live weight to the user's account |
 | Tiger Studio / Connect | Display live weight; health monitoring |
-
-## Recommended setup
-
-<img src="../assets/tigerscale-dymo-tigerpod.jpg" width="100%" alt="A TigerPOD sitting on a DYMO scale, weighing a tagged spool" />
-
-1. **Plug your DYMO scale into your computer over USB.**
-2. **Set the TigerPOD Mini or the original on top of the scale.**
-3. **Tare the DYMO scale.**
-4. **Open Tiger Studio Manager.**
-5. **Put a spool on the TigerPOD.**
-6. **The TigerPOD reads the spool's NTAG chips and opens its card in Tiger
- Studio Manager.**
-7. **The DYMO scale weighs the spool — Tiger Studio Manager updates its
- weight automatically.**
 
 ## Links
 
