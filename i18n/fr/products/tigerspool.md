@@ -1,5 +1,5 @@
 ---
-sourceHash: 0151462747b928a6030bbb9ba159f7f989f37f0a3aa531ac84c7530c3aa3891b
+sourceHash: 71aafd7b2b80d3d1648a0ab1bff2340263e997b8e4c5241e5f45a4efdcded4a8
 sourcePath: docs/products/tigerspool.md
 ---
 
@@ -94,16 +94,22 @@ Trois choses à acheter, quatre fils, une coque imprimée. **L'électronique est
 identique pour toutes les marques d'imprimante** — seule la coque change, et
 c'est ce qui permet de n'avoir qu'un firmware et qu'une liste de pièces.
 
-| # | Pièce | Pourquoi celle-ci | Prix ~ |
-|---|---|---|---|
-| 1 | Carte de développement **Waveshare ESP32-S3-Touch-LCD-2** | Écran IPS 2,0" 240×320 tactile capacitif, ESP32-S3**R8**, 16 Mo de flash, 8 Mo de PSRAM octale. Écran, dalle tactile et MCU sur une seule carte — aucun afficheur à câbler. Les 16 Mo sont ce qui rend deux partitions OTA confortables. | ~25 € |
-| 2 | Module **PN532 NFC**, V3 à interrupteurs DIP | Lit les puces NTAG21x qu'utilise TigerTag. Il doit gérer **HSU/UART** ; les deux interrupteurs vont sur `0` / OFF. Un lot de deux coûte à peine plus qu'un seul. | ~9 € les deux |
-| 3 | **Un câble USB-C qui transporte les données** | Alimente et flashe la carte. Le débit n'a aucune importance — n'importe quel câble de données USB 2.0 suffit. | ~5–10 € |
+| Qté | Composant | Où |
+|---|---|---|
+| 1 | Carte de développement **Waveshare ESP32-S3-Touch-LCD-2** — écran IPS 2,0" 240×320 tactile capacitif, ESP32-S3**R8**, 16 Mo de flash, 8 Mo de PSRAM octale | [Amazon](https://link.amazon/B0c5hr3uf) |
+| 1 | Module **PN532 V3** NFC — interrupteurs DIP, doit gérer **HSU/UART** ; les deux interrupteurs vont sur `0` / OFF | [Amazon](https://link.amazon/B0dyEfwKa) |
+| 1 | Un câble USB-C qui transporte les données — n'importe quel câble de données USB 2.0 suffit | [Amazon](https://link.amazon/B00Xg3WT4) |
 
 Les **quatre fils de liaison sont fournis avec le PN532** — 3V3, GND, TX, RX,
 et c'est tout le faisceau. Pas d'adaptateur de niveau (le PN532 fonctionne en
 3V3, comme la carte), pas de batterie (le boîtier est posé à côté d'une
 imprimante déjà branchée).
+
+> Certains liens de ce tableau sont des **liens affiliés Amazon** : en tant que
+> Partenaire Amazon, TigerTag est rémunéré sur les achats remplissant les
+> conditions requises, **sans aucun surcoût pour vous**. Cela finance le
+> protocole ouvert. Acheter les mêmes pièces ailleurs fonctionne exactement
+> aussi bien.
 
 <img src="../assets/tigerspool-wiring.jpg" width="600" alt="Câblage : la carte ESP32-S3-Touch-LCD-2 vers le PN532 — 3V3 vers VCC, GND vers GND, TX vers SDA, RX vers SCL" />
 
