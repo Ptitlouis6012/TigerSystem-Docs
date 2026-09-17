@@ -81,15 +81,18 @@ before buying parts for a specific machine.
 
 ## Build one
 
-Three things to buy, four wires, one printed shell. **The electronics are
-identical for every printer brand** — only the shell changes, which is what
-keeps it to one firmware and one parts list.
+Three things to buy, four wires, one printed shell — plus two extras worth
+considering below. **The electronics are identical for every printer brand**
+— only the shell changes, which is what keeps it to one firmware and one
+parts list.
 
 | Qty | Component | Where |
 |---|---|---|
 | 1 | Waveshare **ESP32-S3-Touch-LCD-2** development board — 2.0" 240×320 IPS capacitive touch, ESP32-S3**R8**, 16 MB flash, 8 MB octal PSRAM | [Amazon](https://link.amazon/B0c5hr3uf) |
 | 1 | **PN532 V3** NFC module — DIP switches, must support **HSU/UART**; both switches to `0` / OFF | [Amazon](https://link.amazon/B0dyEfwKa) |
 | 1 | A USB-C cable that carries data — any USB 2.0 data cable works | [Amazon](https://link.amazon/B00Xg3WT4) |
+| 1 | Magnetic USB-C connector — **recommended**, the port is the part handled every day; the cable lets go instead of the socket | [Amazon](https://link.amazon/B0bWVIBa0) |
+| 1 | 3.7 V 1000 mAh LiPo cell, PH1.25 — **optional**, charged over USB; the box then runs cable-free and gains a Battery entry in Settings — check the polarity | [Amazon](https://link.amazon/B0fL0jjf3) |
 
 The **four jumper wires come with the PN532** — 3V3, GND, TX, RX, and that is
 the whole harness. No level shifters (the PN532 runs at 3V3, same as the

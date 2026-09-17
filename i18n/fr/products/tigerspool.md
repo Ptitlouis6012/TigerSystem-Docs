@@ -1,5 +1,5 @@
 ---
-sourceHash: 71aafd7b2b80d3d1648a0ab1bff2340263e997b8e4c5241e5f45a4efdcded4a8
+sourceHash: 3587ac0e1c9cedf005e5f0e362c3fd262a95aa9e8883b9d7ea72c301856195eb
 sourcePath: docs/products/tigerspool.md
 ---
 
@@ -90,15 +90,18 @@ avant d'acheter des pièces pour une machine précise.
 
 ## En construire un
 
-Trois choses à acheter, quatre fils, une coque imprimée. **L'électronique est
-identique pour toutes les marques d'imprimante** — seule la coque change, et
-c'est ce qui permet de n'avoir qu'un firmware et qu'une liste de pièces.
+Trois choses à acheter, quatre fils, une coque imprimée — plus deux extras à
+considérer plus bas. **L'électronique est identique pour toutes les marques
+d'imprimante** — seule la coque change, et c'est ce qui permet de n'avoir
+qu'un firmware et qu'une liste de pièces.
 
 | Qté | Composant | Où |
 |---|---|---|
 | 1 | Carte de développement **Waveshare ESP32-S3-Touch-LCD-2** — écran IPS 2,0" 240×320 tactile capacitif, ESP32-S3**R8**, 16 Mo de flash, 8 Mo de PSRAM octale | [Amazon](https://link.amazon/B0c5hr3uf) |
 | 1 | Module **PN532 V3** NFC — interrupteurs DIP, doit gérer **HSU/UART** ; les deux interrupteurs vont sur `0` / OFF | [Amazon](https://link.amazon/B0dyEfwKa) |
 | 1 | Un câble USB-C qui transporte les données — n'importe quel câble de données USB 2.0 suffit | [Amazon](https://link.amazon/B00Xg3WT4) |
+| 1 | Connecteur USB-C magnétique — **recommandé**, c'est la partie manipulée chaque jour ; le câble se détache plutôt que la prise | [Amazon](https://link.amazon/B0bWVIBa0) |
+| 1 | Batterie LiPo 3,7 V 1000 mAh, PH1.25 — **facultative**, chargée par USB ; le boîtier tourne alors sans câble et gagne une entrée Batterie dans les Réglages — vérifiez la polarité | [Amazon](https://link.amazon/B0fL0jjf3) |
 
 Les **quatre fils de liaison sont fournis avec le PN532** — 3V3, GND, TX, RX,
 et c'est tout le faisceau. Pas d'adaptateur de niveau (le PN532 fonctionne en
