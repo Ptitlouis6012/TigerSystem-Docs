@@ -63,8 +63,9 @@ between Cloud and local tools: both are live at once.
 The owner keeps every FlashForge Cloud feature, and gains the whole ecosystem
 on top: a free, open-source **filament and printer manager** on the desktop, a
 **phone that reads and writes spools**, and **[TigerSpool](../products/tigerspool.md)** —
-an open-source reader box that sits beside the machines and serves **up to 24
-printers at once**, one box for the whole shelf.
+an open-source reader box that sits beside the machines and keeps **up to 24
+printers** in its list, ten of them connected at once — one box for the whole
+shelf.
 
 So a printer with no reader and no format of its own now reads the chip of any
 filament brand that uses TigerTag — and of the spools makers tag themselves at

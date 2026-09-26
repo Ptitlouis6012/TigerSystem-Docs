@@ -1,18 +1,18 @@
 ---
-sourceHash: 423e9b6139ecfa41d673751f5260ff4133b4a708eecfca104df49ab1933c0926
+sourceHash: 294aaa530d62c01a0b4adb5bb937b5b67296c4bdba2a643ee56dd32564c07bbe
 sourcePath: docs/products/tigerspool.md
 ---
 
 # TigerSpool
 
-**Un petit boîtier à côté de l'imprimante. Présentez une bobine, touchez un
-emplacement, et le filament y est inscrit — sur n'importe quelle marque
+**Un petit boîtier à côté de l'imprimante. Touchez un emplacement, présentez
+une bobine, et le filament y est inscrit — sur n'importe quelle marque
 d'imprimante.**
 
 <img src="../assets/tigerspool-with-spool.webp" width="560" alt="Un TigerSpool à côté d'une bobine de filament, son écran listant les emplacements de l'imprimante avec la marque chargée dans chacun" />
 
 *Le boîtier, une bobine, et les emplacements de l'imprimante à l'écran — chacun
-montrant ce qui y est chargé. Approchez la bobine, choisissez un emplacement,
+montrant ce qui y est chargé. Choisissez un emplacement, approchez la bobine,
 c'est fait.*
 
 <div class="ts-cta ts-cta--hero">
@@ -33,19 +33,20 @@ courantes.
 
 ## Ce qu'il fait
 
-1. **Présentez la bobine au boîtier.** La
- [puce TigerTag](../concepts/tigertag-chip.md) est lue au contact.
-2. **Touchez l'emplacement** voulu sur l'écran tactile — avec les noms
+1. **Touchez l'emplacement** voulu sur l'écran tactile — avec les noms
  d'emplacements qu'utilise l'imprimante elle-même.
-3. **Confirmez.** L'affectation part vers l'imprimante via le protocole propre
- à cette marque : matière, marque, couleur et températures, au bon
- emplacement.
+2. **Présentez la bobine au boîtier.** La
+ [puce TigerTag](../concepts/tigertag-chip.md) est lue au contact, et
+ l'affectation part aussitôt vers l'imprimante via le protocole propre à
+ cette marque : matière, marque, couleur et températures, au bon emplacement.
+ Il n'y a rien à confirmer.
+3. **Chargez la bobine.** Le boîtier vous indique dans quel emplacement.
 
-Il parle huit langues, demande laquelle avant toute chose, et se met à jour
+Il parle neuf langues, demande laquelle avant toute chose, et se met à jour
 tout seul par voie hertzienne.
 
 :::caution[Avertissement]
-Scanner une TigerTag et confirmer un emplacement à l'écran ne charge rien —
+Scanner une TigerTag sur un emplacement à l'écran ne charge rien —
 cela indique seulement à l'imprimante ce qu'*est* la bobine. **Vous devez
 toujours placer physiquement la bobine dans cet emplacement vous-même** — le
 CFS, l'AMS, l'unité ACE, ou quel que soit le nom que cette imprimante donne
@@ -91,7 +92,7 @@ dans Tiger Studio et elle apparaît à la synchronisation suivante.
 ## Quelles imprimantes
 
 **Les six marques intégrées à Tiger Studio sont couvertes** — écrites, et
-éprouvées sur matériel. Ce n'est pas toute imprimante du marché, et *« n'importe
+testées sur matériel. Ce n'est pas toute imprimante du marché, et *« n'importe
 quelle imprimante »* reste l'objectif ; c'est toute marque à laquelle cet
 écosystème parle aujourd'hui :
 
@@ -101,8 +102,8 @@ quelle imprimante »* reste l'objectif ; c'est toute marque à laquelle cet
 | [FlashForge](../compatibility/flashforge.md) | implémenté, éprouvé | HTTP |
 | [Bambu Lab](../compatibility/bambu-lab.md) | implémenté, éprouvé | MQTT sur TLS |
 | [Snapmaker](../compatibility/snapmaker.md) | implémenté, éprouvé | Moonraker sur WebSocket |
-| [Elegoo](../compatibility/elegoo.md) | implémenté, éprouvé | MQTT |
-| [Anycubic](../compatibility/anycubic.md) | implémenté, éprouvé | MQTT sur TLS |
+| [Elegoo](../compatibility/elegoo.md) | implémenté, lecture éprouvée — écriture pas encore confirmée sur une imprimante | MQTT |
+| [Anycubic](../compatibility/anycubic.md) | implémenté, lecture éprouvée — écriture pas encore confirmée ; mode LAN uniquement | MQTT sur TLS |
 
 Les noms d'emplacements suivent ceux de l'imprimante : `Ext.` et `1A`–`1D`
 chez Creality et FlashForge, `A1`–`A4` puis `B1`–`B4` chez Bambu Lab,
@@ -125,7 +126,7 @@ firmware et qu'une liste de pièces.
 | 1 | Module NFC **PN532 V3** — interrupteurs DIP, doit gérer **HSU/UART**, les deux sur `0` / OFF. Un lot de deux coûte à peine plus qu'un seul | [Amazon](https://link.amazon/B0dyEfwKa) |
 | 1 | Un câble USB-C **qui transporte les données** — le débit n'a aucune importance, n'importe quel câble USB 2.0 de données suffit | [Amazon](https://link.amazon/B00Xg3WT4) |
 | 1 | Connecteur USB-C magnétique — **recommandé** : le port est la pièce manipulée tous les jours, et c'est le câble qui lâche plutôt que la prise | [Amazon](https://link.amazon/B0bWVIBa0) |
-| 1 | Accu LiPo 3,7 V 1000 mAh, PH1.25 — **optionnel**, chargé par l'USB ; le boîtier fonctionne alors sans câble et gagne une entrée Batterie dans les réglages. Vérifiez la polarité | [Amazon](https://link.amazon/B0fL0jjf3) |
+| 1 | Accu LiPo 3,7 V 1000 mAh, PH1.25 — **optionnel**, chargé par l'USB ; le boîtier fonctionne alors sans câble. La carte ne sait pas détecter un accu : vous le déclarez dans Réglages › Batterie. Vérifiez la polarité | [Amazon](https://link.amazon/B0fL0jjf3) |
 
 > Certains liens de ce tableau sont des **liens affiliés Amazon** : en tant que
 > partenaire Amazon, TigerTag perçoit une commission sur les achats
@@ -138,11 +139,12 @@ et c'est tout le faisceau. Pas d'adaptateur de niveau : le PN532 fonctionne en
 normalement posé à côté d'une imprimante déjà branchée, et l'accu ci-dessus est
 pour les fois où il ne l'est pas.
 
-<img src="../assets/tigerspool-wiring.jpg" width="600" alt="Câblage : la carte ESP32-S3-Touch-LCD-2 vers le PN532 — 3V3 vers VCC, GND vers GND, TX vers SDA, RX vers SCL" />
+<img src="../assets/tigerspool-wiring.jpg" width="600" alt="Câblage : la carte ESP32-S3-Touch-LCD-2 vers le PN532 — 3V3 vers VCC, GND vers GND, TX vers SCL, RX vers SDA" />
 
 *Tout le faisceau. Sur le PN532, les deux broches de données sont sérigraphiées
-`SDA` et `SCL` — en mode HSU, ce sont elles qui portent l'UART, c'est donc là
-que vont TX et RX.
+`SDA` et `SCL` — en mode HSU, ce sont elles qui portent l'UART : le **TX de la
+carte va sur `SCL`**, son **RX sur `SDA`**, et les deux interrupteurs DIP sont
+sur `0` / OFF.
 [Schéma interactif](https://app.cirkitdesigner.com/project/7a6c0887-8e44-4303-81b3-be51aab4b40a).*
 
 **Le flashage se fait depuis le navigateur** — branchez la carte, cliquez sur
@@ -178,15 +180,19 @@ Liste complète des pièces, schéma de câblage et procédure de mise en route 
 
 Écrit noir sur blanc plutôt que découvert :
 
-- **Les coques imprimées ne sont pas encore publiées.** La règle qui les
- gouverne, elle, l'est — même carte, même lecteur, mêmes quatre fils, même
- entrée USB-C, afin qu'un seul firmware tourne sur tous les modèles et que
- n'importe qui puisse proposer une coque sans toucher au code.
+- **La première coque imprimée est publiée** : un support de bureau
+ autoportant, bobine à gauche ou à droite, dans
+ [Model3D/](https://github.com/TigerTag-Project/TigerSpool-RFID/tree/main/Model3D).
+ Les coques qui se fixent sur une imprimante donnée suivent la même règle —
+ même carte, même lecteur, mêmes quatre fils, même entrée USB-C — afin qu'un
+ seul firmware tourne sur tous les modèles et que n'importe qui puisse en
+ proposer une sans toucher au code.
 - **Le firmware n'est pas signé.** Sa connexion de mise à jour est vérifiée
  contre le magasin de certificats racines, donc le boîtier sait à qui il
  parle — mais pas qui a produit l'image.
-- **Le texte à l'écran ne porte pas d'accents**, la police compilée étant de
- l'ASCII plus le degré et la puce.
+- **Dix imprimantes connectées en même temps, au plus** — sur les 24 qu'un
+ compte peut lui confier — dont trois au plus qui parlent TLS (Bambu Lab,
+ Anycubic), les plus gourmandes en mémoire.
 
 ---
 

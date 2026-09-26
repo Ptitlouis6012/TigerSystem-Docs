@@ -1,12 +1,12 @@
 # TigerSpool
 
-**A small box beside the printer. Hold a spool against it, tap a slot, and the
+**A small box beside the printer. Tap a slot, hold a spool against it, and the
 filament is written into that slot — on any brand of printer.**
 
 <img src="../assets/tigerspool-with-spool.webp" width="560" alt="A TigerSpool beside a filament spool, its screen listing the printer's slots with the brand loaded in each" />
 
 *The box, a spool, and the printer's own slots on screen — each one showing
-what is loaded in it. Hold the spool against the box, pick a slot, done.*
+what is loaded in it. Pick a slot, hold the spool against the box, done.*
 
 <div class="ts-cta ts-cta--hero">
 <a class="ts-cta-primary" href="https://tigertag-project.github.io/TigerSpool-RFID/">Install from your browser</a>
@@ -25,18 +25,19 @@ Open source under **MIT**, ESP32-S3, about **40 €** of common parts.
 
 ## What it does
 
-1. **Hold the spool to the box.** The [TigerTag chip](../concepts/tigertag-chip.md)
- is read on contact.
-2. **Tap the slot** you want on the touchscreen — the same slot names the
+1. **Tap the slot** you want on the touchscreen — the same slot names the
  printer itself uses.
-3. **Confirm.** The assignment reaches the printer over that brand's own
- protocol: material, brand, colour and temperatures, in the right slot.
+2. **Hold the spool to the box.** The [TigerTag chip](../concepts/tigertag-chip.md)
+ is read on contact, and the assignment leaves for the printer at once, over
+ that brand's own protocol: material, brand, colour and temperatures, in the
+ right slot. There is nothing to confirm.
+3. **Load the spool.** The box tells you which slot it went to.
 
-It speaks eight languages, asks which one before anything else, and updates
+It speaks nine languages, asks which one before anything else, and updates
 itself over the air.
 
 :::caution[Warning]
-Scanning a TigerTag and confirming a slot on the screen does not load
+Scanning a TigerTag onto a slot on the screen does not load
 anything — it only tells the printer what the spool *is*. **You still have
 to physically put the spool in that slot yourself** — the CFS, the AMS, the
 ACE unit, or whatever that printer calls its own tray. Skip that and the
@@ -80,7 +81,7 @@ the next sync.
 
 ## Which printers
 
-**The six brands Tiger Studio integrates are covered** — written, and proven
+**The six brands Tiger Studio integrates are covered** — written, and tested
 on hardware. That is not every printer on the market, and *"any printer"*
 stays the goal; it is every brand this ecosystem speaks to today:
 
@@ -90,8 +91,8 @@ stays the goal; it is every brand this ecosystem speaks to today:
 | [FlashForge](../compatibility/flashforge.md) | implemented, proven | HTTP |
 | [Bambu Lab](../compatibility/bambu-lab.md) | implemented, proven | MQTT over TLS |
 | [Snapmaker](../compatibility/snapmaker.md) | implemented, proven | Moonraker over WebSocket |
-| [Elegoo](../compatibility/elegoo.md) | implemented, proven | MQTT |
-| [Anycubic](../compatibility/anycubic.md) | implemented, proven | MQTT over TLS |
+| [Elegoo](../compatibility/elegoo.md) | implemented, reading proven — writing not yet confirmed on a printer | MQTT |
+| [Anycubic](../compatibility/anycubic.md) | implemented, reading proven — writing not yet confirmed; LAN mode only | MQTT over TLS |
 
 Slot names follow the printer's own: `Ext.` and `1A`–`1D` on Creality and
 FlashForge, `A1`–`A4` then `B1`–`B4` on Bambu Lab, `E1`–`E4` on Snapmaker, `S1`–`S4` on
@@ -113,7 +114,7 @@ the shell changes, which is what keeps it to one firmware and one parts list.
 | 1 | **PN532 V3** NFC module — DIP switches, must support **HSU/UART**, both switches to `0` / OFF. A two-pack costs barely more than one | [Amazon](https://link.amazon/B0dyEfwKa) |
 | 1 | A USB-C cable **that carries data** — speed is irrelevant, any USB 2.0 data cable does | [Amazon](https://link.amazon/B00Xg3WT4) |
 | 1 | Magnetic USB-C connector — **recommended**: the port is the part handled every day, and the cable lets go instead of the socket | [Amazon](https://link.amazon/B0bWVIBa0) |
-| 1 | 3.7 V 1000 mAh LiPo cell, PH1.25 — **optional**, charged over USB; the box then runs cable-free and gains a Battery entry in Settings. Check the polarity | [Amazon](https://link.amazon/B0fL0jjf3) |
+| 1 | 3.7 V 1000 mAh LiPo cell, PH1.25 — **optional**, charged over USB; the box then runs cable-free. The board cannot detect a cell, so you declare it in Settings › Battery. Check the polarity | [Amazon](https://link.amazon/B0fL0jjf3) |
 
 > Some links in this table are **Amazon affiliate links**: as an Amazon
 > Associate, TigerTag earns from qualifying purchases, **at no extra cost to
@@ -125,10 +126,11 @@ the whole harness. No level shifters: the PN532 runs at 3V3, same as the board.
 A battery is **optional** — the box normally sits beside a printer that is
 already plugged in, and the cell above is for the times it does not.
 
-<img src="../assets/tigerspool-wiring.jpg" width="600" alt="Wiring: the ESP32-S3-Touch-LCD-2 board to the PN532 — 3V3 to VCC, GND to GND, TX to SDA, RX to SCL" />
+<img src="../assets/tigerspool-wiring.jpg" width="600" alt="Wiring: the ESP32-S3-Touch-LCD-2 board to the PN532 — 3V3 to VCC, GND to GND, TX to SCL, RX to SDA" />
 
 *The whole harness. On the PN532 the two data pins are silkscreened `SDA` and
-`SCL` — in HSU mode they carry the UART, so that is where TX and RX go.
+`SCL` — in HSU mode they carry the UART: the board's **TX goes to `SCL`**, its
+**RX to `SDA`**, and both DIP switches sit at `0` / OFF.
 [Interactive schematic](https://app.cirkitdesigner.com/project/7a6c0887-8e44-4303-81b3-be51aab4b40a).*
 
 **Flashing is done from the browser** — plug the board in, click Install, wait
@@ -161,15 +163,18 @@ Full parts list, wiring diagram and bring-up checklist:
 
 Written down rather than discovered:
 
-- **The printed shells are not published yet.** The rule that governs them is —
- same board, same reader, same four wires, same USB-C entry, so that one firmware
- image runs on every model and anyone can contribute a shell without touching
- code.
+- **The first printed shell is published**: a free-standing desktop stand,
+ with the spool on the left or on the right, in
+ [Model3D/](https://github.com/TigerTag-Project/TigerSpool-RFID/tree/main/Model3D).
+ Cases that mount on a given printer follow the same rule — same board, same
+ reader, same four wires, same USB-C entry — so one firmware image runs on
+ every model and anyone can contribute one without touching code.
 - **The firmware is not signed.** Its update connection is verified against the
  root certificate store, so the box knows who it is talking to — but not who
  produced the image.
-- **On-screen text carries no accents**, the compiled font being ASCII plus
- degree and bullet.
+- **Ten printers connected at once, at most** — of the 24 an account can hand
+ it — and no more than three that speak TLS (Bambu Lab, Anycubic), which cost
+ the most memory.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-sourceHash: 47248e2bcfb90f6f4c5088019068176f0bb0cf081f3b4484fb0dcab65b87212f
+sourceHash: 0da2b619f681b73709bf69f7a267703c5e222bb752d614aa97a95027294187e1
 sourcePath: docs/compatibility/flashforge.md
 ---
 
@@ -71,8 +71,8 @@ Le possesseur conserve toutes les fonctions du Cloud FlashForge, et gagne l'éco
 entier par-dessus : un **gestionnaire de filaments et d'imprimantes** libre et gratuit
 sur le bureau, un **téléphone qui lit et écrit les bobines**, et
 **[TigerSpool](../products/tigerspool.md)** — un boîtier lecteur open source posé à côté
-des machines, qui en dessert **jusqu'à 24 en même temps**, un seul boîtier pour toute
-l'étagère.
+des machines, qui garde **jusqu'à 24 imprimantes** dans sa liste, dont dix connectées
+en même temps — un seul boîtier pour toute l'étagère.
 
 Ainsi une imprimante sans lecteur et sans format propre lit désormais la puce de
 n'importe quelle marque de filament qui utilise TigerTag — et celle des bobines que les
