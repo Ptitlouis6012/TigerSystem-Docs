@@ -1,5 +1,5 @@
 ---
-sourceHash: 841c78efba4f139834abf5833c5d38d1717451cc07f82d9e8110390471c78415
+sourceHash: b1195dff7dcca81a4c8f018d67c943933f9d6c051f29b6e5aa6aa90c24005206
 sourcePath: docs/developers/material-swatch.md
 ---
 
@@ -20,15 +20,15 @@ convention est écrite pour `id_type` en général : rien de ce qui suit ne lit 
 type de produit, si bien qu'une pastille se produit de la même façon quelle que
 soit la matière.
 
-Elle est normative. Un filament bicolore qui affiche une séparation verticale
-dans une application et un dégradé de gauche à droite dans une autre est un bug
+Elle est normative. Un filament bicolore qui affiche une séparation diagonale
+dans une application et une séparation verticale dans une autre est un bug
 dans celle qui s'est écartée de cette page — ce n'est pas une affaire de goût.
 Si vous ne pouvez pas reproduire une règle à l'identique (une plateforme sans
 dégradé conique, par exemple), implémentez l'équivalent le plus proche décrit
 dans [Plateformes non-CSS](#plateformes-non-css) et dites-le ; n'inventez pas une
 autre image.
 
-- **Version de la convention :** 1.0
+- **Version de la convention :** 1.1 — le bicolore est une séparation **diagonale** (la 1.0 le séparait verticalement)
 - **Moteur de rendu de référence :** [`material-swatch-playground.html`](./material-swatch-playground.html) —
  ouvrez-le dans n'importe quel navigateur, sans serveur ni dépendance. Tous les
  cas, toutes les formes de boîte, des sélecteurs de couleur en direct, et le CSS
@@ -36,30 +36,37 @@ autre image.
 
 ---
 
-## Deux formes, et deux seulement
+## Trois formes, et trois seulement
 
 | Forme | Quand | Géométrie |
 |---|---|---|
-| **Camembert** (part de tarte) | Toute matière à bords francs — bicolore, tricolore, toute liste de N couleurs | N secteurs coniques égaux, la première couleur commençant à **midi**, balayage **dans le sens horaire** |
+| **Séparation diagonale** | Exactement **deux** couleurs à bords francs — bicolore | Deux moitiés sur l'axe à **135°**, arête franche passant par le centre : première couleur **en haut à gauche**, seconde **en bas à droite** |
+| **Camembert** (part de tarte) | **Trois couleurs ou plus** à bords francs — tricolore, toute liste de N ≥ 3 | N secteurs coniques égaux, la première couleur commençant à **midi**, balayage **dans le sens horaire** |
 | **Dégradé** | Rainbow, et le type `gradient` déclaré par le catalogue | Un dégradé linéaire lisse à **135°** — orienté vers le bas à droite, la première couleur se trouvant donc en haut à gauche |
 
-Dit simplement : **tout est un camembert sauf un dégradé**, et il existe
-exactement un seul angle de dégradé dans tout le système.
+Dit simplement : **deux couleurs franches se séparent en diagonale, davantage
+forment un camembert, des couleurs fondues forment un dégradé** — et il existe un
+seul angle dans tout le système, 135°, partagé par la séparation et le dégradé.
 
-**Le bicolore est la séparation verticale garantie — et ce n'est pas un cas
-particulier.** Deux secteurs égaux placent leur frontière sur l'axe vertical :
-une matière bicolore affiche donc une arête verticale droite sur *n'importe
-quelle* boîte — pastille ronde, tuile carrée, vignette large, barre
-partiellement remplie. Vous l'obtenez gratuitement en implémentant le
-camembert ; vous n'avez pas besoin d'un chemin de code séparé, et vous ne devez
-pas en introduire un qui le dessine en miroir.
+**Le bicolore est la séparation diagonale — le jumeau à arête franche du
+dégradé.** Même axe, même ordre (première couleur en haut à gauche), mais une
+arête franche à 50 % au lieu d'un fondu. L'arête va du coin supérieur droit au
+coin inférieur gauche en passant par le centre de *n'importe quelle* boîte —
+pastille ronde, tuile carrée, vignette large, cadre autour d'une photo, barre
+partiellement remplie. Implémentez-la une seule fois, dans la fonction qui
+sépare une liste de couleurs franches (N = 2 → diagonale, N ≥ 3 → camembert),
+pour que tous les appelants en profitent ; ne la dessinez jamais en miroir.
 
-Pourquoi un camembert plutôt que des bandes diagonales : les frontières de
-secteurs sont angulaires, mesurées depuis le centre de la boîte, donc l'image
-reste reconnaissable quel que soit le rapport d'aspect de la boîte. Pourquoi
-135° pour les dégradés : un dégradé n'a aucune arête franche à placer, l'angle
-est donc libre — un balayage diagonal se lit comme un dégradé au lieu de
-ressembler à un bicolore mal rendu.
+Pourquoi une diagonale pour deux couleurs : une séparation verticale se lisait
+comme deux objets distincts posés côte à côte — sur une vignette, et plus encore
+dans le cadre coloré autour d'une photo produit, où la photo masquait le centre
+et ne laissait qu'une barre à gauche et une barre à droite. Une diagonale se lit
+comme une seule matière bicolore. Pourquoi un camembert à partir de trois
+couleurs : les frontières de secteurs sont angulaires, mesurées depuis le centre
+de la boîte, donc N secteurs restent reconnaissables quel que soit le rapport
+d'aspect de la boîte, ce que N bandes diagonales ne permettraient pas. Pourquoi
+135° : c'est l'unique angle du système — un bicolore et un dégradé à deux
+couleurs partagent l'axe et ne diffèrent que par l'arête franche.
 
 ---
 
@@ -85,7 +92,7 @@ Trois identifiants d'aspect changent la forme (leur table de référence porte
 
 | id | label | `color_count` | Forme |
 |---|---|---|---|
-| `252` | Bicolor | 2 | Camembert, 2 secteurs → **séparation verticale** |
+| `252` | Bicolor | 2 | **Séparation diagonale**, 135° |
 | `24` | Tricolor | 3 | Camembert, 3 secteurs |
 | `145` | Rainbow | 3 | Dégradé, 135° |
 
@@ -128,14 +135,14 @@ Soit `LIST` = `online_color_list` après [normalisation](#normalisation), `TYPE`
 | # | Condition | Résultat |
 |---|---|---|
 | 1 | `LIST ≥ 2` et `TYPE == "conic_gradient"` | Balayage conique lisse, se refermant sur la première couleur |
-| 2 | `LIST ≥ 2` et `TYPE == "gradient"` | Dégradé — **même sur deux couleurs** ; le catalogue a demandé un dégradé, il ne devient donc pas une séparation bicolore |
-| 3 | `LIST ≥ 2` | **Camembert** de `LIST.length` secteurs |
+| 2 | `LIST ≥ 2` et `TYPE == "gradient"` | Dégradé — **même sur deux couleurs** ; le catalogue a demandé un dégradé, il ne devient donc pas une séparation bicolore franche |
+| 3 | `LIST ≥ 2` | Séparation franche de `LIST` : **diagonale** avec 2 couleurs, **camembert** de `LIST.length` secteurs avec 3 ou plus |
 | 4 | `LIST == 1` | Couleur unie — **prime sur la couleur de la puce** |
 | 5 | aspect **Rainbow** *et* **Tricolor** | Dégradé, 3 arrêts |
 | 6 | aspect **Rainbow** *et* **Bicolor** | Dégradé, 2 arrêts |
 | 7 | aspect **Rainbow** | Dégradé sur `SLOTS` ; 1 emplacement → uni ; 0 emplacement → les 6 couleurs par défaut |
 | 8 | aspect **Tricolor** | **Camembert**, 3 secteurs sur `SLOTS` (emplacement 3 manquant → répéter l'emplacement 1) |
-| 9 | aspect **Bicolor** | **Camembert**, 2 secteurs → **séparation verticale** |
+| 9 | aspect **Bicolor** | **Séparation diagonale**, 135°, sur les emplacements 1 et 2 |
 | 10 | sinon | Emplacement 1 uni ; rien du tout → `#1c2030` |
 
 Valeurs par défaut lorsqu'un aspect ne porte aucune couleur utilisable :
@@ -179,11 +186,11 @@ nombres.
 Avec `c1…cN` les couleurs normalisées et `step = 360 / N` :
 
 ```css
-/* Camembert — rules 3, 8, 9 */
-conic-gradient(c1 0deg <step>deg, c2 <step>deg <2·step>deg, …)
+/* Diagonal split — exactly two hard colours: rule 3 with 2 colours, rule 9 */
+linear-gradient(135deg, c1 50%, c2 50%)
 
-/* Bicolor is that same expression with N = 2 — the guaranteed vertical split */
-conic-gradient(#e02424 0deg 180deg, #2463e0 180deg 360deg)
+/* Camembert — three or more hard colours: rule 3 with ≥ 3 colours, rule 8 */
+conic-gradient(c1 0deg <step>deg, c2 <step>deg <2·step>deg, …)
 
 /* Ramp — rules 2, 5, 6, 7. One angle for every ramp in the system. */
 linear-gradient(135deg, c1, c2, …)
@@ -203,10 +210,10 @@ Toute implémentation doit les reproduire exactement.
 |---|---|
 | `{online_color_list:["FF5722"]}` | `#FF5722` |
 | `{online_color_list:["000000FF"]}` | `#000000` |
-| `{online_color_list:["e02424","2463e0"]}` | `conic-gradient(#e02424 0deg 180deg, #2463e0 180deg 360deg)` |
+| `{online_color_list:["e02424","2463e0"]}` | `linear-gradient(135deg, #e02424 50%, #2463e0 50%)` |
 | `{online_color_list:["e02424","2463e0","22a06b"]}` | `conic-gradient(#e02424 0deg 120deg, #2463e0 120deg 240deg, #22a06b 240deg 360deg)` |
 | `{online_color_list:["e02424","2463e0"],online_color_type:"gradient"}` | `linear-gradient(135deg, #e02424, #2463e0)` |
-| `{color_r:224,color_g:36,color_b:36,color_r2:36,color_g2:99,color_b2:224,id_aspect2:252}` | `conic-gradient(#e02424 0deg 180deg, #2463e0 180deg 360deg)` |
+| `{color_r:224,color_g:36,color_b:36,color_r2:36,color_g2:99,color_b2:224,id_aspect2:252}` | `linear-gradient(135deg, #e02424 50%, #2463e0 50%)` |
 | `{id_aspect1:145}` | `linear-gradient(135deg, #ff0000, #ff8800, #ffff00, #00cc00, #0000ff, #8b00ff)` |
 | `{}` | `#1c2030` |
 
@@ -249,7 +256,7 @@ développez la notation abrégée avant le calcul.
 ## Plateformes non-CSS
 
 Flutter, SwiftUI, Android ou tout moteur de rendu sur canvas implémentent les
-deux mêmes formes. Les angles se mesurent toujours à la manière du CSS : **0°
+trois mêmes formes. Les angles se mesurent toujours à la manière du CSS : **0°
 pointe vers le haut, les angles augmentent dans le sens horaire.**
 
 - **Camembert** — un dégradé balayé centré sur la tuile, démarrant à midi, dans
@@ -257,6 +264,10 @@ pointe vers le haut, les angles augmentent dans le sens horaire.**
  `SweepGradient` avec `transform: GradientRotation(-pi/2)`. Ne l'approximez pas
  par des parts dessinées comme des tracés, sauf si la tuile est carrée — les
  frontières des secteurs doivent suivre la boîte.
+- **Séparation diagonale** — la géométrie du dégradé avec une arête franche au
+ milieu : `c1@0, c1@0.5, c2@0.5, c2@1` du coin **supérieur gauche** au coin
+ **inférieur droit**. Flutter : `LinearGradient(begin: Alignment.topLeft, end:
+ Alignment.bottomRight, colors: [c1, c1, c2, c2], stops: [0, .5, .5, 1])`.
 - **Dégradé** — un dégradé linéaire du coin **supérieur gauche** au coin
  **inférieur droit**. Flutter : `Alignment.topLeft → Alignment.bottomRight`.
 - **Arrêts francs** — répétez chaque couleur aux deux extrémités de sa bande

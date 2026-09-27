@@ -92,10 +92,12 @@
    ./material-swatch.md — keep the two in step.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-// N colours, hard edges → N equal conic sectors, first colour at 12 o'clock,
-// clockwise. With N = 2 the boundary lands on the vertical axis, which is why
-// bicolor is a guaranteed vertical split and not a special case.
+// Hard-edged colours. Exactly TWO → a diagonal split on the 135° axis (first
+// colour top-left, hard edge at 50 %) — the ramp's hard-edged twin. THREE or
+// more → N equal conic sectors, first colour at 12 o'clock, clockwise. One
+// function, so every hard split (catalogue list or chip aspect) gets the rule.
 const pieSplit = colors => {
+  if (colors.length === 2) return `linear-gradient(${RAMP_ANGLE}, ${colors[0]} 50%, ${colors[1]} 50%)`;
   const step = 360 / colors.length;
   return `conic-gradient(${colors.map((c, i) => `${c} ${i * step}deg ${(i + 1) * step}deg`).join(', ')})`;
 };
@@ -154,7 +156,7 @@ function colorBg(doc) {
   }
   if (isBicolor) {                                            // 9
     const [c1 = '#cccccc', c2 = '#ffffff'] = slots;
-    return pieSplit([c1, c2]);                                //   → vertical split
+    return pieSplit([c1, c2]);                                //   → diagonal split
   }
   return slots[0] || '#1c2030';                               // 10
 }
@@ -195,8 +197,8 @@ const CASES = [
     note:'The luminance trap: an unnormalised #000000FF read as "light" puts the black logo on a black spool.',
     doc:{ online_color_list:['000000FF'] } },
 
-  { t:'Bicolor — chip aspect 252', rule:'rule 9 — 2 sectors ⇒ vertical split',
-    note:'Look at all five boxes: the boundary stays vertical on the circle, the square, the banner, the column and the clipped bar. That is what the angular geometry buys.',
+  { t:'Bicolor — chip aspect 252', rule:'rule 9 — diagonal split, 135°',
+    note:'Look at all five boxes: the hard edge runs top-right → bottom-left through the centre of the circle, the square, the banner, the column and the clipped bar — first colour top-left, like the ramp.',
     doc:{ color_r:224, color_g:36, color_b:36, color_r2:36, color_g2:99, color_b2:224,
           color_r3:0, color_g3:0, color_b3:0, id_aspect2:ASPECT.BICOLOR } },
   { t:'Tricolor — chip aspect 24', rule:'rule 8 — 3 sectors',
@@ -211,7 +213,7 @@ const CASES = [
   { t:'Declared type: gradient', rule:'rule 2 — ramp 135°',
     doc:{ online_color_list:['e02424','f0a020','2463e0'], online_color_type:'gradient' } },
   { t:'Declared type: gradient, TWO colours', rule:'rule 2 — still a ramp',
-    note:'Deliberately NOT the vertical split: the catalogue asked for a ramp.',
+    note:'Same axis as the bicolor split, but blended: the catalogue asked for a ramp, not a hard edge.',
     doc:{ online_color_list:['e02424','2463e0'], online_color_type:'gradient' } },
   { t:'Declared type: conic_gradient', rule:'rule 1 — catalogue only, never on a chip',
     doc:{ online_color_list:['e02424','f0a020','22a06b','2463e0'], online_color_type:'conic_gradient' } },
