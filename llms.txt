@@ -304,7 +304,7 @@ brand using TigerTag, and of spools makers tag themselves at home.
 - [Compatible third-party hardware](docs/compatibility/third-party-hardware.md): the growing list — ACR122U, AJAX-3D TD-1/TD1s, DYMO/HID USB scales, blank NTAG chips
 - [Developers](docs/developers/README.md): repo map, SDKs, cloud integration
 - [The material swatch](docs/developers/material-swatch.md): NORMATIVE — how spool
- colour data becomes a picture (bicolor and tricolor = 135° ramp, 4+ hard
+ colour data becomes a picture (bicolor and tricolor = 135° soft split — solid colours, 20 % blended seam — 4+ hard
  colours = camembert, rainbow/declared gradient = 135° ramp; convention v1.2;
  the decision ladder, test vectors, the watermark rule). Every TigerSystem
  surface implements this; a live reference renderer sits beside it in

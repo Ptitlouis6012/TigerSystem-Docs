@@ -1,5 +1,5 @@
 ---
-sourceHash: 2a155081c08bcb001c8aa36abc38310516b8756c1e7d1b9a93880be024458e69
+sourceHash: de1e41d015a6b6a290899b3e62d4bb3cb6a664370340d4ea6b4b25e3f149058e
 sourcePath: docs/glossary.md
 ---
 
@@ -39,7 +39,7 @@ renvoie vers la page qui en détient l'explication complète.
 | **Twin Tag** | Les deux puces d'une même bobine, écrites ensemble par paire et maintenues identiques toute la vie de la bobine — toujours comptées comme **une seule** bobine. |
 | **Base de données de référence** | Les tables d'identifiants partagées (marques, matières, aspects, types, diamètres, unités) servies depuis `cdn.tigertag.io`, pour qu'une puce encodée par un outil se lise à l'identique dans tous les autres. Voir [Identité universelle du filament](./concepts/universal-filament-identity.md). |
 | **Aspect** | Le champ de la base de données de référence qui décrit la couleur et la finition d'un filament ; c'est à partir de lui qu'est peint le [nuancier matière](./developers/material-swatch.md). |
-| **Nuancier matière** | La convention normative qui transforme les *données* de couleur d'une bobine en une même *image* sur toutes les surfaces — deux formes seulement (dégradé pour 2-3 couleurs franches, camembert à partir de 4), avec un moteur de rendu de référence pour contrôler une implémentation. Voir [Le nuancier matière](./developers/material-swatch.md). |
+| **Nuancier matière** | La convention normative qui transforme les *données* de couleur d'une bobine en une même *image* sur toutes les surfaces — trois formes (une séparation adoucie à 135° pour 2-3 couleurs franches, un camembert à partir de 4, un dégradé à 135° pour les couleurs lisses), avec un moteur de rendu de référence pour contrôler une implémentation. Voir [Le nuancier matière](./developers/material-swatch.md). |
 | **Fichier `.ttag`** | Le fichier d'échange portable et hors ligne qui transporte une ou plusieurs matières d'inventaire (TigerData, TigerData+, TigerTag ou TigerTag+) d'un outil à l'autre. Voir [le format `.ttag`](./developers/ttag-format.md). |
 | **Seconde vie** | Réencoder une puce pour une bobine rechargée ou reconvertie, ou la convertir en NDEF simple pour tout autre usage NFC — une puce ne devrait jamais devenir un déchet électronique. Voir [Seconde vie](./philosophy/second-life.md). |
 | **Pont smartphone** | Utiliser un téléphone (ou un lecteur de bureau) pour identifier une bobine destinée à une imprimante dépourvue de lecteur RFID. Voir [Le pont smartphone](./philosophy/smartphone-bridge.md). |

@@ -92,18 +92,24 @@
    ./material-swatch.md — keep the two in step.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-// Hard-edged colours. TWO or THREE → a smooth 135° ramp, no hard edge, first
-// colour top-left — same shape as a declared gradient of the same length.
+// Hard-edged colours. TWO or THREE → a 135° soft split: each colour solid, a
+// SPLIT_BLEND % seam blended at each boundary, first colour top-left.
 // FOUR or more → N equal conic sectors, first colour at 12 o'clock, clockwise
-// (a ramp through 4+ colours turns to mud, sectors stay recognisable). One
+// (4+ bands on one diagonal get too thin, sectors stay recognisable). One
 // function, so every hard split (catalogue list or chip aspect) gets the rule.
 const pieSplit = colors => {
-  if (colors.length <= 3) return `linear-gradient(${RAMP_ANGLE}, ${colors.join(', ')})`;
+  if (colors.length <= 3) {
+    // Soft split: each colour solid, a SPLIT_BLEND % seam blended at each boundary.
+    const seg = 100 / colors.length, h = SPLIT_BLEND / 2;
+    const stops = colors.map((c, i) => `${c} ${+Math.max(0, i * seg + (i ? h : 0)).toFixed(2)}% ${+Math.min(100, (i + 1) * seg - (i < colors.length - 1 ? h : 0)).toFixed(2)}%`);
+    return `linear-gradient(${RAMP_ANGLE}, ${stops.join(', ')})`;
+  }
   const step = 360 / colors.length;
   return `conic-gradient(${colors.map((c, i) => `${c} ${i * step}deg ${(i + 1) * step}deg`).join(', ')})`;
 };
 // One angle for every smooth ramp in the system.
 const RAMP_ANGLE = '135deg';
+const SPLIT_BLEND = 20;   // % of the diagonal blended at each soft-split boundary
 
 // Aspect ids that change the shape. Match on the ID, never on the label.
 const ASPECT = { BICOLOR: 252, TRICOLOR: 24, RAINBOW: 145 };
@@ -153,11 +159,11 @@ function colorBg(doc) {
   }
   if (isTricolor) {                                           // 8
     const [c1 = '#cccccc', c2 = '#888888', c3] = slots;
-    return pieSplit(c3 ? [c1, c2, c3] : [c1, c2]);             //   slot 3 missing → 2-colour ramp
+    return pieSplit(c3 ? [c1, c2, c3] : [c1, c2]);             //   slot 3 missing → 2-colour soft split
   }
   if (isBicolor) {                                            // 9
     const [c1 = '#cccccc', c2 = '#ffffff'] = slots;
-    return pieSplit([c1, c2]);                                //   → ramp
+    return pieSplit([c1, c2]);                                //   → soft split
   }
   return slots[0] || '#1c2030';                               // 10
 }
@@ -198,25 +204,25 @@ const CASES = [
     note:'The luminance trap: an unnormalised #000000FF read as "light" puts the black logo on a black spool.',
     doc:{ online_color_list:['000000FF'] } },
 
-  { t:'Bicolor — chip aspect 252', rule:'rule 9 — ramp, 135°',
-    note:'Look at all five boxes: the blend runs top-left → bottom-right across the circle, the square, the banner, the column and the clipped bar, first colour top-left, no hard edge.',
+  { t:'Bicolor — chip aspect 252', rule:'rule 9 — soft split, 135°',
+    note:'Look at all five boxes: the seam runs top-right → bottom-left through the centre of the circle, the square, the banner, the column and the clipped bar, first colour top-left; each colour stays solid, only a 20 % seam blends.',
     doc:{ color_r:224, color_g:36, color_b:36, color_r2:36, color_g2:99, color_b2:224,
           color_r3:0, color_g3:0, color_b3:0, id_aspect2:ASPECT.BICOLOR } },
-  { t:'Tricolor — chip aspect 24', rule:'rule 8 — ramp, 135°',
+  { t:'Tricolor — chip aspect 24', rule:'rule 8 — soft split, 135°',
     doc:{ color_r:224, color_g:36, color_b:36, color_r2:36, color_g2:99, color_b2:224,
           color_r3:34, color_g3:160, color_b3:107, id_aspect2:ASPECT.TRICOLOR } },
 
-  { t:'Two colours in the list', rule:'rule 3 — ramp',
+  { t:'Two colours in the list', rule:'rule 3 — soft split',
     doc:{ online_color_list:['e02424','2463e0'] } },
-  { t:'Three colours in the list', rule:'rule 3 — still a ramp',
+  { t:'Three colours in the list', rule:'rule 3 — still a soft split',
     doc:{ online_color_list:['e02424','2463e0','22a06b'] } },
   { t:'Four colours in the list (multi)', rule:'rule 3 — camembert from here up',
     doc:{ online_color_list:['e02424','f0a020','2463e0','22a06b'], online_color_type:'multi' } },
 
   { t:'Declared type: gradient', rule:'rule 2 — ramp 135°',
     doc:{ online_color_list:['e02424','f0a020','2463e0'], online_color_type:'gradient' } },
-  { t:'Declared type: gradient, TWO colours', rule:'rule 2 — same shape as an undeclared 2-colour list',
-    note:'The declared type only changes anything once the list reaches 4 colours — below that, a hard list already renders as this same ramp.',
+  { t:'Declared type: gradient, TWO colours', rule:'rule 2 — a smooth ramp, not a soft split',
+    note:'The catalogue asked for a gradient, so it blends all the way — compare with the undeclared two-colour list, which holds each colour solid.',
     doc:{ online_color_list:['e02424','2463e0'], online_color_type:'gradient' } },
   { t:'Declared type: conic_gradient', rule:'rule 1 — catalogue only, never on a chip',
     doc:{ online_color_list:['e02424','f0a020','22a06b','2463e0'], online_color_type:'conic_gradient' } },

@@ -1,5 +1,5 @@
 ---
-sourceHash: b276fd9b17e276371d05b73a8ea59cc00ea622ada212c56e384580b7a1e04203
+sourceHash: 3e4912b78eb9c9a6fc37be01b2ab69b38dd3f85a96aeb724a150b9c6a119e317
 sourcePath: docs/developers/material-swatch.md
 ---
 
@@ -20,15 +20,15 @@ convention est écrite pour `id_type` en général : rien de ce qui suit ne lit 
 type de produit, si bien qu'une pastille se produit de la même façon quelle que
 soit la matière.
 
-Elle est normative. Un filament bicolore qui affiche un dégradé fondu dans une
-application et une séparation diagonale franche dans une autre est un bug dans
+Elle est normative. Un filament bicolore qui affiche une séparation adoucie dans une
+application et une arête franche ou un dégradé plein dans une autre est un bug dans
 celle qui s'est écartée de cette page — ce n'est pas une affaire de goût. Si
 vous ne pouvez pas reproduire une règle à l'identique (une plateforme sans
 dégradé conique, par exemple), implémentez l'équivalent le plus proche décrit
 dans [Plateformes non-CSS](#plateformes-non-css) et dites-le ; n'inventez pas une
 autre image.
 
-- **Version de la convention :** 1.2 — le bicolore et le tricolore sont un **dégradé à 135°** (la 1.1 dessinait le bicolore en séparation diagonale franche et le tricolore en camembert ; la 1.0 séparait le bicolore verticalement)
+- **Version de la convention :** 1.2 — le bicolore et le tricolore sont une **séparation adoucie à 135°** : couleurs unies avec une jonction fondue de 20 % (la 1.1 dessinait le bicolore en séparation diagonale franche et le tricolore en camembert ; la 1.0 séparait le bicolore verticalement)
 - **Moteur de rendu de référence :** [`material-swatch-playground.html`](./material-swatch-playground.html) —
  ouvrez-le dans n'importe quel navigateur, sans serveur ni dépendance. Tous les
  cas, toutes les formes de boîte, des sélecteurs de couleur en direct, et le CSS
@@ -40,32 +40,40 @@ autre image.
 
 | Forme | Quand | Géométrie |
 |---|---|---|
-| **Dégradé** | **Deux ou trois** couleurs à bords francs — bicolore, tricolore — plus rainbow et le type `gradient` déclaré par le catalogue | Un dégradé linéaire lisse à **135°**, sans arête franche — orienté vers le bas à droite, la première couleur se trouvant donc en haut à gauche |
+| **Séparation adoucie** | **Deux ou trois** couleurs à bords francs — bicolore, tricolore | N bandes égales le long de l'axe à **135°**, première couleur **en haut à gauche** ; chaque couleur reste **unie**, et seule une jonction de **20 %** de la diagonale (`SPLIT_BLEND`) centrée sur chaque frontière est fondue |
+| **Dégradé** | Rainbow, et le type `gradient` déclaré par le catalogue | Un dégradé linéaire lisse à **135°**, arrêts régulièrement espacés — orienté vers le bas à droite, la première couleur se trouvant donc en haut à gauche |
 | **Camembert** (part de tarte) | **Quatre couleurs ou plus** à bords francs — toute liste de N ≥ 4 | N secteurs coniques égaux, la première couleur commençant à **midi**, balayage **dans le sens horaire** |
 
-Dit simplement : **deux ou trois couleurs franches se fondent en un dégradé,
-quatre ou plus forment un camembert** — et il existe un seul angle dans tout le
-système, 135°, partagé par tous les dégradés.
+Dit simplement : **deux ou trois couleurs franches forment une séparation
+adoucie, quatre ou plus un camembert, les couleurs lisses un dégradé** — et il
+existe un seul angle dans tout le système, 135°, partagé par la séparation
+adoucie et le dégradé.
 
-**Le bicolore et le tricolore sont un dégradé — la même forme qu'un dégradé
-déclaré.** Même axe, même ordre (première couleur en haut à gauche), aucune
-arête franche nulle part : 2 ou 3 couleurs franches se fondent exactement comme
-un `gradient` de catalogue de même longueur. Implémentez-le une seule fois,
-dans la fonction qui traite une liste de couleurs (N ≤ 3 → dégradé, N ≥ 4 →
-camembert), pour que tous les appelants en profitent ; ne le dessinez jamais en
+**Le bicolore et le tricolore sont une séparation adoucie — l'axe du dégradé,
+la netteté de la séparation.** Même axe et même ordre qu'un dégradé (première
+couleur en haut à gauche), mais chaque couleur reste unie sur sa bande et seule
+une jonction de **20 %** est fondue à chaque frontière. Avec `seg = 100 / N` et
+`h = SPLIT_BLEND / 2 = 10`, la couleur *i* est unie de `i·seg + h` (0 pour la
+première) à `(i+1)·seg − h` (100 pour la dernière). Implémentez-la une seule
+fois, dans la fonction qui traite une liste de couleurs (N ≤ 3 → séparation
+adoucie, N ≥ 4 → camembert), pour que tous les appelants en profitent ; ne le dessinez jamais en
 miroir.
 
-Pourquoi un dégradé pour deux ou trois couleurs : une arête franche se lisait
-encore comme deux ou trois objets distincts — sur une vignette, et plus encore
-dans le cadre coloré autour d'une photo produit, où la photo masquait le centre
-et ne laissait que des barres de couleur disjointes. Un dégradé se lit comme une
-seule matière multi-teinte, quelle que soit la forme de la boîte. Pourquoi un
-camembert à partir de quatre couleurs : un dégradé sur quatre couleurs ou plus
-devient boueux, alors que les frontières de secteurs restent angulaires et
+Pourquoi une séparation adoucie pour deux ou trois couleurs : une arête franche
+se lisait encore comme deux ou trois objets distincts — sur une vignette, et plus
+encore dans le cadre coloré autour d'une photo produit, où la photo masquait le
+centre et ne laissait que des barres de couleur disjointes. Un dégradé plein
+réglait cela mais délavait les couleurs, au point qu'aucune ne se lisait comme la
+vraie. La séparation adoucie garde chaque couleur unie et ne fond que la
+jonction : une seule matière multi-teinte, aux vraies couleurs, quelle que soit
+la forme de la boîte. 20 % a été choisi à l'œil sur toutes les surfaces (une
+jonction plus large ne laisse presque plus de bande unie à la couleur du milieu
+d'un tricolore). Pourquoi un camembert à partir de quatre couleurs : quatre
+bandes ou plus sur une même diagonale deviennent trop fines pour se lire, alors que les frontières de secteurs restent angulaires et
 reconnaissables — mesurées depuis le centre de la boîte, donc N secteurs
 restent lisibles quel que soit le rapport d'aspect de la boîte. Pourquoi 135° :
-c'est l'unique angle du système, partagé par tous les dégradés, qu'ils aient 2,
-3 arrêts ou plus.
+c'est l'unique angle du système, partagé par la séparation adoucie et tous les
+dégradés.
 
 ---
 
@@ -91,8 +99,8 @@ Trois identifiants d'aspect changent la forme (leur table de référence porte
 
 | id | label | `color_count` | Forme |
 |---|---|---|---|
-| `252` | Bicolor | 2 | **Dégradé**, 135° |
-| `24` | Tricolor | 3 | **Dégradé**, 135° |
+| `252` | Bicolor | 2 | **Séparation adoucie**, 135° |
+| `24` | Tricolor | 3 | **Séparation adoucie**, 135° |
 | `145` | Rainbow | 3 | Dégradé, 135° |
 
 Tout autre aspect (`Silk`, `Matt`, `Glitter`, …) a un `color_count` ≤ 1 et
@@ -134,14 +142,14 @@ Soit `LIST` = `online_color_list` après [normalisation](#normalisation), `TYPE`
 | # | Condition | Résultat |
 |---|---|---|
 | 1 | `LIST ≥ 2` et `TYPE == "conic_gradient"` | Balayage conique lisse, se refermant sur la première couleur |
-| 2 | `LIST ≥ 2` et `TYPE == "gradient"` | Dégradé — même forme que `LIST` obtiendrait de toute façon à 2-3 couleurs ; le type déclaré ne change quelque chose qu'à partir de `LIST.length ≥ 4` |
-| 3 | `LIST ≥ 2` | **Dégradé** de `LIST` avec 2 ou 3 couleurs, **camembert** de `LIST.length` secteurs avec 4 ou plus |
+| 2 | `LIST ≥ 2` et `TYPE == "gradient"` | Dégradé — même sur deux ou trois couleurs ; le catalogue a demandé un dégradé lisse, il ne devient donc pas une séparation adoucie |
+| 3 | `LIST ≥ 2` | **Séparation adoucie** de `LIST` avec 2 ou 3 couleurs, **camembert** de `LIST.length` secteurs avec 4 ou plus |
 | 4 | `LIST == 1` | Couleur unie — **prime sur la couleur de la puce** |
 | 5 | aspect **Rainbow** *et* **Tricolor** | Dégradé, 3 arrêts |
 | 6 | aspect **Rainbow** *et* **Bicolor** | Dégradé, 2 arrêts |
 | 7 | aspect **Rainbow** | Dégradé sur `SLOTS` ; 1 emplacement → uni ; 0 emplacement → les 6 couleurs par défaut |
-| 8 | aspect **Tricolor** | **Dégradé**, 135°, sur `SLOTS` (emplacement 3 manquant → dégradé à 2 couleurs sur les emplacements 1 et 2, sans répéter l'emplacement 1) |
-| 9 | aspect **Bicolor** | **Dégradé**, 135°, sur les emplacements 1 et 2 |
+| 8 | aspect **Tricolor** | **Séparation adoucie**, 135°, sur `SLOTS` (emplacement 3 manquant → séparation adoucie à 2 couleurs sur les emplacements 1 et 2, sans répéter l'emplacement 1) |
+| 9 | aspect **Bicolor** | **Séparation adoucie**, 135°, sur les emplacements 1 et 2 |
 | 10 | sinon | Emplacement 1 uni ; rien du tout → `#1c2030` |
 
 Valeurs par défaut lorsqu'un aspect ne porte aucune couleur utilisable :
@@ -151,7 +159,7 @@ Valeurs par défaut lorsqu'un aspect ne porte aucune couleur utilisable :
 | Rainbow, aucune couleur | `#ff0000 #ff8800 #ffff00 #00cc00 #0000ff #8b00ff` |
 | Rainbow + Tricolor | `#ff4d4d #ffd93d #4da3ff` |
 | Rainbow + Bicolor | `#ff7a00 #8a2be2` |
-| Tricolor | `#cccccc #888888` (emplacement 3 manquant → dégradé à 2 couleurs, l'emplacement 1 n'est pas répété) |
+| Tricolor | `#cccccc #888888` (emplacement 3 manquant → séparation adoucie à 2 couleurs, l'emplacement 1 n'est pas répété) |
 | Bicolor | `#cccccc #ffffff` |
 | Rien | `#1c2030` |
 
@@ -182,11 +190,16 @@ nombres.
 
 ## Les expressions exactes
 
-Avec `c1…cN` les couleurs normalisées et `step = 360 / N` :
+Avec `c1…cN` les couleurs normalisées, `step = 360 / N`, `seg = 100 / N` et
+`SPLIT_BLEND = 20` :
 
 ```css
-/* Ramp — 2 or 3 hard colours: rule 3 with 2-3 colours, rules 5-9. Same shape
-   as a declared gradient, one angle for every ramp in the system. */
+/* Soft split — 2 or 3 hard colours: rule 3 with 2-3 colours, rules 8-9.
+   Each colour solid over its band, a 20 % blended seam at each boundary. */
+linear-gradient(135deg, c1 0% 40%, c2 60% 100%)                        /* N = 2 */
+linear-gradient(135deg, c1 0% 23.33%, c2 43.33% 56.67%, c3 76.67% 100%) /* N = 3 */
+
+/* Ramp — rainbow and a declared gradient: rules 2, 5-7 */
 linear-gradient(135deg, c1, c2, …)
 
 /* Camembert — four or more hard colours: rule 3 with ≥ 4 colours */
@@ -207,11 +220,11 @@ Toute implémentation doit les reproduire exactement.
 |---|---|
 | `{online_color_list:["FF5722"]}` | `#FF5722` |
 | `{online_color_list:["000000FF"]}` | `#000000` |
-| `{online_color_list:["e02424","2463e0"]}` | `linear-gradient(135deg, #e02424, #2463e0)` |
-| `{online_color_list:["e02424","2463e0","22a06b"]}` | `linear-gradient(135deg, #e02424, #2463e0, #22a06b)` |
+| `{online_color_list:["e02424","2463e0"]}` | `linear-gradient(135deg, #e02424 0% 40%, #2463e0 60% 100%)` |
+| `{online_color_list:["e02424","2463e0","22a06b"]}` | `linear-gradient(135deg, #e02424 0% 23.33%, #2463e0 43.33% 56.67%, #22a06b 76.67% 100%)` |
 | `{online_color_list:["e02424","2463e0","22a06b","f0a020"]}` | `conic-gradient(#e02424 0deg 90deg, #2463e0 90deg 180deg, #22a06b 180deg 270deg, #f0a020 270deg 360deg)` |
 | `{online_color_list:["e02424","2463e0"],online_color_type:"gradient"}` | `linear-gradient(135deg, #e02424, #2463e0)` |
-| `{color_r:224,color_g:36,color_b:36,color_r2:36,color_g2:99,color_b2:224,id_aspect2:252}` | `linear-gradient(135deg, #e02424, #2463e0)` |
+| `{color_r:224,color_g:36,color_b:36,color_r2:36,color_g2:99,color_b2:224,id_aspect2:252}` | `linear-gradient(135deg, #e02424 0% 40%, #2463e0 60% 100%)` |
 | `{id_aspect1:145}` | `linear-gradient(135deg, #ff0000, #ff8800, #ffff00, #00cc00, #0000ff, #8b00ff)` |
 | `{}` | `#1c2030` |
 
@@ -263,10 +276,14 @@ pointe vers le haut, les angles augmentent dans le sens horaire.**
  par des parts dessinées comme des tracés, sauf si la tuile est carrée — les
  frontières des secteurs doivent suivre la boîte. Uniquement à partir de
  **quatre** couleurs franches.
-- **Dégradé** — un dégradé linéaire du coin **supérieur gauche** au coin
- **inférieur droit**, arrêts régulièrement espacés, sans arête franche. Utilisé
- pour **deux ou trois** couleurs franches (bicolore, tricolore), pour rainbow,
- et pour le type `gradient` déclaré par le catalogue. Flutter :
+- **Séparation adoucie** — un dégradé linéaire du coin **supérieur gauche** au
+ coin **inférieur droit** avec les arrêts ci-dessus : chaque couleur unie, une
+ jonction de 20 % fondue à chaque frontière. Utilisée pour **deux ou trois**
+ couleurs franches (bicolore, tricolore). Flutter : `LinearGradient(begin:
+ Alignment.topLeft, end: Alignment.bottomRight)` avec `colors` doublées et
+ `stops` `[0, .4, .6, 1]` (N = 2) ou `[0, .2333, .4333, .5667, .7667, 1]` (N = 3).
+- **Dégradé** — le même axe, arrêts régulièrement espacés, sans maintien. Utilisé
+ pour rainbow et pour le type `gradient` déclaré par le catalogue. Flutter :
  `Alignment.topLeft → Alignment.bottomRight`.
 
 ---
