@@ -14,11 +14,11 @@ contribution, not a complaint.
 
 | Who | Commits | Pull requests | Issues |
 |---|---|---|---|
-| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 29 | 39 | 1 |
+| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 35 | 44 | 2 |
 | **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 8 | 7 |
 | **[@ennisj](https://github.com/ennisj)** | 21 | 7 | — |
+| **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 5 | 1 |
 | **[@ImNanou](https://github.com/ImNanou)** | — | — | 5 |
-| **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 1 | — |
 | **[@physicsG](https://github.com/physicsG)** | — | — | 2 |
 | **[@sjordan0228](https://github.com/sjordan0228)** | — | — | 2 |
 | **[@clauzet-rgb](https://github.com/clauzet-rgb)** | — | 1 | — |

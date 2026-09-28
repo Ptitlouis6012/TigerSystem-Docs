@@ -1,5 +1,5 @@
 ---
-sourceHash: bf1e5164ce504e26e5279e39d8985da0aa37465a623b08d0cf9e6db92e8f3e34
+sourceHash: f8e4b5c0431b4d1af669d3d82aab273324382a7f72405fdc629db399a52b3d09
 sourcePath: docs/hall-of-fame.md
 ---
 
@@ -22,11 +22,11 @@ réclamation.
 
 | Qui | Commits | Pull requests | Issues |
 |---|---|---|---|
-| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 29 | 39 | 1 |
+| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 35 | 44 | 2 |
 | **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 8 | 7 |
 | **[@ennisj](https://github.com/ennisj)** | 21 | 7 | — |
+| **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 5 | 1 |
 | **[@ImNanou](https://github.com/ImNanou)** | — | — | 5 |
-| **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 1 | — |
 | **[@physicsG](https://github.com/physicsG)** | — | — | 2 |
 | **[@sjordan0228](https://github.com/sjordan0228)** | — | — | 2 |
 | **[@clauzet-rgb](https://github.com/clauzet-rgb)** | — | 1 | — |
