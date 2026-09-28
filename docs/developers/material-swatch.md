@@ -13,14 +13,15 @@ protocol has yet to gain. The convention is written against `id_type` in
 general: nothing below reads the product type, so a swatch is produced the same
 way whatever the material is.
 
-It is normative. A bicolor filament that shows a diagonal split in one app and a
-vertical one in another is a bug in whichever one departed from this page
+It is normative. A bicolor filament that shows a smooth ramp in one app and a
+hard diagonal split in another is a bug in whichever one departed from this page
 — not a matter of taste. If you cannot reproduce a rule exactly (a platform
 with no conic gradient, say), implement the closest equivalent described in
 [Non-CSS platforms](#non-css-platforms) and say so; do not invent a different
 picture.
 
-- **Convention version:** 1.1 — bicolor is a **diagonal** split (1.0 split it vertically)
+- **Convention version:** 1.2 — bicolor and tricolor are a **135° ramp** (1.1 drew bicolor as a
+ hard diagonal split and tricolor as a camembert; 1.0 split bicolor vertically)
 - **Reference renderer:** [`material-swatch-playground.html`](./material-swatch-playground.html) —
  open it in any browser, no server, no dependency. Every case, every box shape,
  live colour pickers, and the exact CSS it produces.
@@ -31,30 +32,28 @@ picture.
 
 | Shape | When | Geometry |
 |---|---|---|
-| **Diagonal split** | Exactly **two** hard-edged colours — bicolor | Two halves along the **135°** axis, hard edge through the centre: first colour **top-left**, second **bottom-right** |
-| **Camembert** (pie) | **Three or more** hard-edged colours — tricolor, any list of N ≥ 3 | N equal conic sectors, first colour starting at **12 o'clock**, sweeping **clockwise** |
-| **Ramp** | Rainbow, and the catalogue's declared `gradient` type | A smooth linear ramp at **135°** — pointing to the bottom-right, so the first colour sits top-left |
+| **Ramp** | **Two or three** hard-edged colours — bicolor, tricolor — plus rainbow and the catalogue's declared `gradient` type | A smooth linear ramp at **135°**, no hard edge — pointing to the bottom-right, so the first colour sits top-left |
+| **Camembert** (pie) | **Four or more** hard-edged colours — any list of N ≥ 4 | N equal conic sectors, first colour starting at **12 o'clock**, sweeping **clockwise** |
 
-Said plainly: **two hard colours split on the diagonal, more make a camembert,
-smooth colours make a ramp** — and there is exactly one angle in the whole system,
-135°, shared by the split and the ramp.
+Said plainly: **two or three hard colours blend into a ramp, four or more make a
+camembert** — and there is exactly one angle in the whole system, 135°, shared
+by every ramp in it.
 
-**Bicolor is the diagonal split — the ramp's hard-edged twin.** Same axis, same
-order (first colour top-left), but a hard edge at 50 % instead of a blend. The
-edge runs top-right → bottom-left through the centre of *any* box: a round
-swatch, a square tile, a wide thumbnail, a frame around a photo, a
-partially-filled bar. Implement it once, in the function that splits a list of
-hard colours (N = 2 → diagonal, N ≥ 3 → pie), so every caller gets it; never draw
-it mirrored.
+**Bicolor and tricolor are a ramp — the same shape as a declared gradient.**
+Same axis, same order (first colour top-left), no hard edge anywhere: 2 or 3
+hard colours blend exactly like a catalogue `gradient` of the same length.
+Implement it once, in the function that splits a list of colours (N ≤ 3 →
+ramp, N ≥ 4 → pie), so every caller gets it; never draw it mirrored.
 
-Why a diagonal for two colours: a vertical split read as two separate objects
-standing side by side — on a thumbnail, and even more on the colour frame round a
-product photo, where the photo hid the centre and left a left bar and a right
-bar. A diagonal reads as one two-tone material. Why a pie from three colours up:
-sector boundaries are angular, measured from the box centre, so N sectors stay
-recognisable whatever the box's aspect ratio, where N diagonal bands would not.
-Why 135°: it is the one angle of the system — a bicolor and a two-colour ramp
-share the axis, and differ only by the hard edge.
+Why a ramp for two or three colours: a hard edge still read as two or three
+separate objects — on a thumbnail, and even more on the colour frame round a
+product photo, where the photo hid the centre and left disjoint coloured bars.
+A ramp reads as one multi-tone material on any box shape. Why a pie from four
+colours up: a ramp through four or more colours turns to mud, while sector
+boundaries stay angular and recognisable — measured from the box centre, so N
+sectors stay legible whatever the box's aspect ratio. Why 135°: it is the one
+angle of the system, shared by every ramp, whether it has 2, 3 or more smooth
+stops.
 
 ---
 
@@ -80,8 +79,8 @@ authoritative `color_count`):
 
 | id | label | `color_count` | Shape |
 |---|---|---|---|
-| `252` | Bicolor | 2 | **Diagonal split**, 135° |
-| `24` | Tricolor | 3 | Camembert, 3 sectors |
+| `252` | Bicolor | 2 | **Ramp**, 135° |
+| `24` | Tricolor | 3 | **Ramp**, 135° |
 | `145` | Rainbow | 3 | Ramp, 135° |
 
 Every other aspect (`Silk`, `Matt`, `Glitter`, …) has `color_count` ≤ 1 and does
@@ -121,14 +120,14 @@ Let `LIST` = `online_color_list` after [normalisation](#normalisation), `TYPE` =
 | # | Condition | Result |
 |---|---|---|
 | 1 | `LIST ≥ 2` and `TYPE == "conic_gradient"` | Smooth conic sweep, closing on the first colour |
-| 2 | `LIST ≥ 2` and `TYPE == "gradient"` | Ramp — **even on two colours**; the catalogue asked for a ramp, so it does not become a hard bicolor split |
-| 3 | `LIST ≥ 2` | Hard split of `LIST`: **diagonal** when 2 colours, **camembert** of `LIST.length` sectors when 3 or more |
+| 2 | `LIST ≥ 2` and `TYPE == "gradient"` | Ramp — same shape `LIST` would get at 2-3 colours anyway; the declared type only matters once `LIST.length ≥ 4` |
+| 3 | `LIST ≥ 2` | **Ramp** of `LIST` when 2 or 3 colours, **camembert** of `LIST.length` sectors when 4 or more |
 | 4 | `LIST == 1` | Solid colour — **outranks the chip colour** |
 | 5 | aspect **Rainbow** *and* **Tricolor** | Ramp, 3 stops |
 | 6 | aspect **Rainbow** *and* **Bicolor** | Ramp, 2 stops |
 | 7 | aspect **Rainbow** | Ramp over `SLOTS`; 1 slot → solid; 0 slots → the 6-colour default |
-| 8 | aspect **Tricolor** | **Camembert**, 3 sectors over `SLOTS` (slot 3 missing → repeat slot 1) |
-| 9 | aspect **Bicolor** | **Diagonal split**, 135°, over slots 1 and 2 |
+| 8 | aspect **Tricolor** | **Ramp**, 135°, over `SLOTS` (slot 3 missing → a 2-colour ramp over slots 1 and 2, it does not repeat slot 1) |
+| 9 | aspect **Bicolor** | **Ramp**, 135°, over slots 1 and 2 |
 | 10 | otherwise | Solid slot 1; nothing at all → `#1c2030` |
 
 Defaults when an aspect carries no usable colour:
@@ -138,7 +137,7 @@ Defaults when an aspect carries no usable colour:
 | Rainbow, no colours | `#ff0000 #ff8800 #ffff00 #00cc00 #0000ff #8b00ff` |
 | Rainbow + Tricolor | `#ff4d4d #ffd93d #4da3ff` |
 | Rainbow + Bicolor | `#ff7a00 #8a2be2` |
-| Tricolor | `#cccccc #888888` (+ slot 1 repeated) |
+| Tricolor | `#cccccc #888888` (slot 3 missing → 2-colour ramp, slot 1 is not repeated) |
 | Bicolor | `#cccccc #ffffff` |
 | Nothing | `#1c2030` |
 
@@ -168,14 +167,12 @@ components are numbers.
 With `c1…cN` the normalised colours and `step = 360 / N`:
 
 ```css
-/* Diagonal split — exactly two hard colours: rule 3 with 2 colours, rule 9 */
-linear-gradient(135deg, c1 50%, c2 50%)
-
-/* Camembert — three or more hard colours: rule 3 with ≥ 3 colours, rule 8 */
-conic-gradient(c1 0deg <step>deg, c2 <step>deg <2·step>deg, …)
-
-/* Ramp — rules 2, 5, 6, 7. One angle for every ramp in the system. */
+/* Ramp — 2 or 3 hard colours: rule 3 with 2-3 colours, rules 5-9. Same shape
+   as a declared gradient, one angle for every ramp in the system. */
 linear-gradient(135deg, c1, c2, …)
+
+/* Camembert — four or more hard colours: rule 3 with ≥ 4 colours */
+conic-gradient(c1 0deg <step>deg, c2 <step>deg <2·step>deg, …)
 
 /* Catalogue-declared conic gradient — rule 1 (first colour repeated to close) */
 conic-gradient(from 0deg, c1, c2, …, c1)
@@ -192,10 +189,11 @@ Any implementation must reproduce these exactly.
 |---|---|
 | `{online_color_list:["FF5722"]}` | `#FF5722` |
 | `{online_color_list:["000000FF"]}` | `#000000` |
-| `{online_color_list:["e02424","2463e0"]}` | `linear-gradient(135deg, #e02424 50%, #2463e0 50%)` |
-| `{online_color_list:["e02424","2463e0","22a06b"]}` | `conic-gradient(#e02424 0deg 120deg, #2463e0 120deg 240deg, #22a06b 240deg 360deg)` |
+| `{online_color_list:["e02424","2463e0"]}` | `linear-gradient(135deg, #e02424, #2463e0)` |
+| `{online_color_list:["e02424","2463e0","22a06b"]}` | `linear-gradient(135deg, #e02424, #2463e0, #22a06b)` |
+| `{online_color_list:["e02424","2463e0","22a06b","f0a020"]}` | `conic-gradient(#e02424 0deg 90deg, #2463e0 90deg 180deg, #22a06b 180deg 270deg, #f0a020 270deg 360deg)` |
 | `{online_color_list:["e02424","2463e0"],online_color_type:"gradient"}` | `linear-gradient(135deg, #e02424, #2463e0)` |
-| `{color_r:224,color_g:36,color_b:36,color_r2:36,color_g2:99,color_b2:224,id_aspect2:252}` | `linear-gradient(135deg, #e02424 50%, #2463e0 50%)` |
+| `{color_r:224,color_g:36,color_b:36,color_r2:36,color_g2:99,color_b2:224,id_aspect2:252}` | `linear-gradient(135deg, #e02424, #2463e0)` |
 | `{id_aspect1:145}` | `linear-gradient(135deg, #ff0000, #ff8800, #ffff00, #00cc00, #0000ff, #8b00ff)` |
 | `{}` | `#1c2030` |
 
@@ -243,16 +241,12 @@ clockwise.**
  clockwise, with hard stops at each `k · 360/N` degrees. Flutter:
  `SweepGradient` with `transform: GradientRotation(-pi/2)`. Do not approximate
  it with pie slices drawn as paths unless the tile is square — the sector
- boundaries must follow the box.
-- **Diagonal split** — the ramp's geometry with a hard edge at the middle:
- `c1@0, c1@0.5, c2@0.5, c2@1` from the **top-left** to the **bottom-right**.
- Flutter: `LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight,
- colors: [c1, c1, c2, c2], stops: [0, .5, .5, 1])`.
+ boundaries must follow the box. Only for **four or more** hard colours.
 - **Ramp** — a linear gradient from the **top-left** corner to the
- **bottom-right**. Flutter: `Alignment.topLeft → Alignment.bottomRight`.
-- **Hard stops** — repeat each colour at both ends of its band
- (`c1@0, c1@0.5, c2@0.5, c2@1`), which is how a platform without CSS's
- two-position syntax gets an edge instead of a blend.
+ **bottom-right**, evenly spaced stops, no hard edge. Used for **two or
+ three** hard colours (bicolor, tricolor), for rainbow, and for the
+ catalogue's declared `gradient` type. Flutter: `Alignment.topLeft →
+ Alignment.bottomRight`.
 
 ---
 
