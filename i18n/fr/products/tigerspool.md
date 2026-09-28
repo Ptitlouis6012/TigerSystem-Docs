@@ -1,5 +1,5 @@
 ---
-sourceHash: 294aaa530d62c01a0b4adb5bb937b5b67296c4bdba2a643ee56dd32564c07bbe
+sourceHash: 76258a57b63698b0cd3fca0c4be001547b3eec64a7cfeb6c390e6a0eb8fd9785
 sourcePath: docs/products/tigerspool.md
 ---
 
@@ -145,7 +145,7 @@ pour les fois où il ne l'est pas.
 `SDA` et `SCL` — en mode HSU, ce sont elles qui portent l'UART : le **TX de la
 carte va sur `SCL`**, son **RX sur `SDA`**, et les deux interrupteurs DIP sont
 sur `0` / OFF.
-[Schéma interactif](https://app.cirkitdesigner.com/project/7a6c0887-8e44-4303-81b3-be51aab4b40a).*
+[Schéma interactif](https://app.cirkitdesigner.com/project/5b546f4e-70b8-4735-afff-be6bd36bc10c).*
 
 **Le flashage se fait depuis le navigateur** — branchez la carte, cliquez sur
 Install, attendez une minute. Chrome, Edge ou Opera sur un ordinateur ; Safari

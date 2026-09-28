@@ -131,7 +131,7 @@ already plugged in, and the cell above is for the times it does not.
 *The whole harness. On the PN532 the two data pins are silkscreened `SDA` and
 `SCL` — in HSU mode they carry the UART: the board's **TX goes to `SCL`**, its
 **RX to `SDA`**, and both DIP switches sit at `0` / OFF.
-[Interactive schematic](https://app.cirkitdesigner.com/project/7a6c0887-8e44-4303-81b3-be51aab4b40a).*
+[Interactive schematic](https://app.cirkitdesigner.com/project/5b546f4e-70b8-4735-afff-be6bd36bc10c).*
 
 **Flashing is done from the browser** — plug the board in, click Install, wait
 a minute. Chrome, Edge or Opera on a desktop; Safari and Firefox do not
