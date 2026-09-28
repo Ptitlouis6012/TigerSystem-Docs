@@ -95,6 +95,14 @@ flowchart LR
  own format version for backward compatibility.
 - **Naming** — self-describing names over encoded/clever ones; no
  multi-state magic values.
+- **IDs, never labels** — any logic that depends on a value from the
+ reference tables (`id_aspect`, `id_brand`, `id_material`, `id_type`,
+ `id_diameter`, `id_measure_unit`, `id_version`…) compares its **numeric ID**,
+ never its label as a string. A label is display text: it is translated, it
+ can be renamed or corrected in the reference database, and it reads
+ differently in every language — an ID never changes. Keep the ID next to the
+ label, name the IDs you branch on (e.g. aspect `Tricolor 24`, `Rainbow 145`,
+ `Bicolor 252`), and use labels for display only.
 - **Colour** — a spool's colour is stored as data, not as a picture, so every
  surface must turn that data into the same picture:
  [the material swatch convention](./material-swatch.md) is normative, and

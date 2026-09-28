@@ -1,5 +1,5 @@
 ---
-sourceHash: 8ae1c06de17fcd742ec5955b2ae95cc97016fada033c19b74bb58ac0e04bce58
+sourceHash: dbd78eb2f02db455a2f9d0c54788c50a84b2c83b37d02e49d90f48adbd504d71
 sourcePath: docs/developers/README.md
 ---
 
@@ -108,6 +108,15 @@ flowchart LR
  rétrocompatibilité.
 - **Nommage** — des noms auto-descriptifs plutôt qu'encodés ou astucieux ; pas
  de valeurs magiques à états multiples.
+- **Des ID, jamais des libellés** — toute logique qui dépend d'une valeur des
+ tables de référence (`id_aspect`, `id_brand`, `id_material`, `id_type`,
+ `id_diameter`, `id_measure_unit`, `id_version`…) compare son **ID
+ numérique**, jamais son libellé sous forme de chaîne. Un libellé est un texte
+ d'affichage : il est traduit, il peut être renommé ou corrigé dans la base de
+ référence, et il se lit différemment dans chaque langue — un ID ne change
+ jamais. Gardez l'ID à côté du libellé, nommez les ID sur lesquels vous
+ branchez (par ex. aspect `Tricolor 24`, `Rainbow 145`, `Bicolor 252`), et
+ réservez les libellés à l'affichage.
 - **Couleur** — la couleur d'une bobine est stockée comme une donnée, pas comme
  une image, donc chaque surface doit transformer cette donnée en la même image :
  [la convention de la pastille de matière](./material-swatch.md) est normative,
