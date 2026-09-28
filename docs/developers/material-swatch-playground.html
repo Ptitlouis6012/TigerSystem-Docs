@@ -97,6 +97,9 @@
 // FOUR or more → N equal conic sectors, first colour at 12 o'clock, clockwise
 // (4+ bands on one diagonal get too thin, sectors stay recognisable). One
 // function, so every hard split (catalogue list or chip aspect) gets the rule.
+// Smooth sweep round the centre, closing on the first colour — a Tricolor aspect
+// (unless Rainbow) and the catalogue's declared conic_gradient.
+const conicSweep = colors => `conic-gradient(from 0deg, ${colors.join(', ')}, ${colors[0]})`;
 const pieSplit = colors => {
   if (colors.length <= 3) {
     // Soft split: each colour solid, a SPLIT_BLEND % seam blended at each boundary.
@@ -139,10 +142,12 @@ function colorBg(doc) {
   ].filter(Boolean);
 
   if (list.length >= 2 && type === 'conic_gradient')          // 1
-    return `conic-gradient(from 0deg, ${list.join(', ')}, ${list[0]})`;
+    return conicSweep(list);
   if (list.length >= 2 && type === 'gradient')                // 2
     return `linear-gradient(${RAMP_ANGLE}, ${list.join(', ')})`;
-  if (list.length >= 2) return pieSplit(list);                // 3
+  if (list.length >= 3 && isTricolor && !isRainbow)           // 3 — Tricolor aspect → colour wheel
+    return conicSweep(list);
+  if (list.length >= 2) return pieSplit(list);                // 3b
   if (list.length === 1) return list[0];                      // 4
   if (isRainbow && isTricolor) {                              // 5
     const [c1 = '#ff4d4d', c2 = '#ffd93d', c3 = '#4da3ff'] = list;
@@ -159,7 +164,7 @@ function colorBg(doc) {
   }
   if (isTricolor) {                                           // 8
     const [c1 = '#cccccc', c2 = '#888888', c3] = slots;
-    return pieSplit(c3 ? [c1, c2, c3] : [c1, c2]);             //   slot 3 missing → 2-colour soft split
+    return c3 ? conicSweep([c1, c2, c3]) : pieSplit([c1, c2]); //   colour wheel; slot 3 missing → 2-colour soft split
   }
   if (isBicolor) {                                            // 9
     const [c1 = '#cccccc', c2 = '#ffffff'] = slots;
@@ -208,7 +213,7 @@ const CASES = [
     note:'Look at all five boxes: the seam runs top-right → bottom-left through the centre of the circle, the square, the banner, the column and the clipped bar, first colour top-left; each colour stays solid, only a 20 % seam blends.',
     doc:{ color_r:224, color_g:36, color_b:36, color_r2:36, color_g2:99, color_b2:224,
           color_r3:0, color_g3:0, color_b3:0, id_aspect2:ASPECT.BICOLOR } },
-  { t:'Tricolor — chip aspect 24', rule:'rule 8 — soft split, 135°',
+  { t:'Tricolor — chip aspect 24', rule:'rule 8 — conic sweep (colour wheel)',
     doc:{ color_r:224, color_g:36, color_b:36, color_r2:36, color_g2:99, color_b2:224,
           color_r3:34, color_g3:160, color_b3:107, id_aspect2:ASPECT.TRICOLOR } },
 

@@ -20,8 +20,8 @@ with no conic gradient, say), implement the closest equivalent described in
 [Non-CSS platforms](#non-css-platforms) and say so; do not invent a different
 picture.
 
-- **Convention version:** 1.2 — bicolor and tricolor are a **135° soft split**: solid colours with a
- 20 % blended seam (1.1 drew bicolor as a hard diagonal split and tricolor as a camembert; 1.0
+- **Convention version:** 1.2 — bicolor is a **135° soft split** (solid colours, 20 % blended
+ seam) and a **Tricolor aspect is a conic sweep** (unless also Rainbow) (1.1 drew bicolor as a hard diagonal split and tricolor as a camembert; 1.0
  split bicolor vertically)
 - **Reference renderer:** [`material-swatch-playground.html`](./material-swatch-playground.html) —
  open it in any browser, no server, no dependency. Every case, every box shape,
@@ -29,16 +29,18 @@ picture.
 
 ---
 
-## Three shapes, and only three
+## Four shapes, and only four
 
 | Shape | When | Geometry |
 |---|---|---|
-| **Soft split** | **Two or three** hard-edged colours — bicolor, tricolor | N equal bands along the **135°** axis, first colour **top-left**; each colour stays **solid**, and only a seam of **20 %** of the diagonal (`SPLIT_BLEND`) centred on each boundary blends |
+| **Soft split** | **Two or three** hard-edged colours — bicolor, or three colours without a Tricolor aspect | N equal bands along the **135°** axis, first colour **top-left**; each colour stays **solid**, and only a seam of **20 %** of the diagonal (`SPLIT_BLEND`) centred on each boundary blends |
 | **Ramp** | Rainbow, and the catalogue's declared `gradient` type | A smooth linear ramp at **135°**, evenly spaced stops — pointing to the bottom-right, so the first colour sits top-left |
 | **Camembert** (pie) | **Four or more** hard-edged colours — any list of N ≥ 4 | N equal conic sectors, first colour starting at **12 o'clock**, sweeping **clockwise** |
+| **Conic sweep** | A **Tricolor** aspect (id 24) not also Rainbow, and the catalogue's declared `conic_gradient` | A smooth conic gradient from **12 o'clock**, clockwise, closing on the first colour — the colour wheel |
 
 Said plainly: **two or three hard colours make a soft split, four or more make a
-camembert, smooth colours make a ramp** — and there is exactly one angle in the
+camembert, smooth colours make a ramp, and a Tricolor aspect spins into a conic
+sweep** — and there is exactly one angle in the
 whole system, 135°, shared by the soft split and the ramp.
 
 **Bicolor and tricolor are a soft split — the ramp's axis, the split's clarity.**
@@ -61,6 +63,9 @@ colours up: four or more bands along one diagonal get too thin to read, while se
 boundaries stay angular and recognisable — measured from the box centre, so N
 sectors stay legible whatever the box's aspect ratio. Why 135°: it is the one
 angle of the system, shared by the soft split and every ramp.
+Why a conic sweep for a Tricolor aspect: three bands on one diagonal leave the
+middle colour a thin sliver; a colour wheel gives all three the same weight and
+reads at once as "three colours", at every size.
 
 ---
 
@@ -87,7 +92,7 @@ authoritative `color_count`):
 | id | label | `color_count` | Shape |
 |---|---|---|---|
 | `252` | Bicolor | 2 | **Soft split**, 135° |
-| `24` | Tricolor | 3 | **Soft split**, 135° |
+| `24` | Tricolor | 3 | **Conic sweep** |
 | `145` | Rainbow | 3 | Ramp, 135° |
 
 Every other aspect (`Silk`, `Matt`, `Glitter`, …) has `color_count` ≤ 1 and does
@@ -128,12 +133,13 @@ Let `LIST` = `online_color_list` after [normalisation](#normalisation), `TYPE` =
 |---|---|---|
 | 1 | `LIST ≥ 2` and `TYPE == "conic_gradient"` | Smooth conic sweep, closing on the first colour |
 | 2 | `LIST ≥ 2` and `TYPE == "gradient"` | Ramp — even on two or three colours; the catalogue asked for a smooth ramp, so it does not become a soft split |
-| 3 | `LIST ≥ 2` | **Soft split** of `LIST` when 2 or 3 colours, **camembert** of `LIST.length` sectors when 4 or more |
+| 3 | `LIST ≥ 3`, aspect **Tricolor**, not **Rainbow** | **Conic sweep** of `LIST` |
+| 3b | `LIST ≥ 2` | **Soft split** of `LIST` when 2 or 3 colours, **camembert** of `LIST.length` sectors when 4 or more |
 | 4 | `LIST == 1` | Solid colour — **outranks the chip colour** |
 | 5 | aspect **Rainbow** *and* **Tricolor** | Ramp, 3 stops |
 | 6 | aspect **Rainbow** *and* **Bicolor** | Ramp, 2 stops |
 | 7 | aspect **Rainbow** | Ramp over `SLOTS`; 1 slot → solid; 0 slots → the 6-colour default |
-| 8 | aspect **Tricolor** | **Soft split**, 135°, over `SLOTS` (slot 3 missing → a 2-colour soft split over slots 1 and 2, it does not repeat slot 1) |
+| 8 | aspect **Tricolor** | **Conic sweep** over `SLOTS` (slot 3 missing → a 2-colour soft split over slots 1 and 2, it does not repeat slot 1) |
 | 9 | aspect **Bicolor** | **Soft split**, 135°, over slots 1 and 2 |
 | 10 | otherwise | Solid slot 1; nothing at all → `#1c2030` |
 

@@ -1,5 +1,5 @@
 ---
-sourceHash: 3e4912b78eb9c9a6fc37be01b2ab69b38dd3f85a96aeb724a150b9c6a119e317
+sourceHash: 177607b1f797be9c2f0be3d7925a65850116275b036fcba3e65a77cd852e9af0
 sourcePath: docs/developers/material-swatch.md
 ---
 
@@ -28,7 +28,7 @@ dégradé conique, par exemple), implémentez l'équivalent le plus proche décr
 dans [Plateformes non-CSS](#plateformes-non-css) et dites-le ; n'inventez pas une
 autre image.
 
-- **Version de la convention :** 1.2 — le bicolore et le tricolore sont une **séparation adoucie à 135°** : couleurs unies avec une jonction fondue de 20 % (la 1.1 dessinait le bicolore en séparation diagonale franche et le tricolore en camembert ; la 1.0 séparait le bicolore verticalement)
+- **Version de la convention :** 1.2 — le bicolore est une **séparation adoucie à 135°** (couleurs unies, jonction fondue de 20 %) et un **aspect Tricolor est un balayage conique** (sauf s'il est aussi Rainbow) (la 1.1 dessinait le bicolore en séparation diagonale franche et le tricolore en camembert ; la 1.0 séparait le bicolore verticalement)
 - **Moteur de rendu de référence :** [`material-swatch-playground.html`](./material-swatch-playground.html) —
  ouvrez-le dans n'importe quel navigateur, sans serveur ni dépendance. Tous les
  cas, toutes les formes de boîte, des sélecteurs de couleur en direct, et le CSS
@@ -36,16 +36,18 @@ autre image.
 
 ---
 
-## Trois formes, et trois seulement
+## Quatre formes, et quatre seulement
 
 | Forme | Quand | Géométrie |
 |---|---|---|
-| **Séparation adoucie** | **Deux ou trois** couleurs à bords francs — bicolore, tricolore | N bandes égales le long de l'axe à **135°**, première couleur **en haut à gauche** ; chaque couleur reste **unie**, et seule une jonction de **20 %** de la diagonale (`SPLIT_BLEND`) centrée sur chaque frontière est fondue |
+| **Séparation adoucie** | **Deux ou trois** couleurs à bords francs — bicolore, ou trois couleurs sans aspect Tricolor | N bandes égales le long de l'axe à **135°**, première couleur **en haut à gauche** ; chaque couleur reste **unie**, et seule une jonction de **20 %** de la diagonale (`SPLIT_BLEND`) centrée sur chaque frontière est fondue |
 | **Dégradé** | Rainbow, et le type `gradient` déclaré par le catalogue | Un dégradé linéaire lisse à **135°**, arrêts régulièrement espacés — orienté vers le bas à droite, la première couleur se trouvant donc en haut à gauche |
 | **Camembert** (part de tarte) | **Quatre couleurs ou plus** à bords francs — toute liste de N ≥ 4 | N secteurs coniques égaux, la première couleur commençant à **midi**, balayage **dans le sens horaire** |
+| **Balayage conique** | Un aspect **Tricolor** (id 24) qui n'est pas aussi Rainbow, et le type `conic_gradient` déclaré par le catalogue | Un dégradé conique lisse depuis **midi**, dans le sens horaire, qui se referme sur la première couleur — la roue de couleurs |
 
 Dit simplement : **deux ou trois couleurs franches forment une séparation
-adoucie, quatre ou plus un camembert, les couleurs lisses un dégradé** — et il
+adoucie, quatre ou plus un camembert, les couleurs lisses un dégradé, et un
+aspect Tricolor tourne en balayage conique** — et il
 existe un seul angle dans tout le système, 135°, partagé par la séparation
 adoucie et le dégradé.
 
@@ -74,6 +76,10 @@ reconnaissables — mesurées depuis le centre de la boîte, donc N secteurs
 restent lisibles quel que soit le rapport d'aspect de la boîte. Pourquoi 135° :
 c'est l'unique angle du système, partagé par la séparation adoucie et tous les
 dégradés.
+Pourquoi un balayage conique pour un aspect Tricolor : trois bandes sur une même
+diagonale ne laissent qu'un mince filet à la couleur du milieu ; une roue de
+couleurs donne le même poids aux trois et se lit tout de suite comme « trois
+couleurs », à toutes les tailles.
 
 ---
 
@@ -100,7 +106,7 @@ Trois identifiants d'aspect changent la forme (leur table de référence porte
 | id | label | `color_count` | Forme |
 |---|---|---|---|
 | `252` | Bicolor | 2 | **Séparation adoucie**, 135° |
-| `24` | Tricolor | 3 | **Séparation adoucie**, 135° |
+| `24` | Tricolor | 3 | **Balayage conique** |
 | `145` | Rainbow | 3 | Dégradé, 135° |
 
 Tout autre aspect (`Silk`, `Matt`, `Glitter`, …) a un `color_count` ≤ 1 et
@@ -143,12 +149,13 @@ Soit `LIST` = `online_color_list` après [normalisation](#normalisation), `TYPE`
 |---|---|---|
 | 1 | `LIST ≥ 2` et `TYPE == "conic_gradient"` | Balayage conique lisse, se refermant sur la première couleur |
 | 2 | `LIST ≥ 2` et `TYPE == "gradient"` | Dégradé — même sur deux ou trois couleurs ; le catalogue a demandé un dégradé lisse, il ne devient donc pas une séparation adoucie |
-| 3 | `LIST ≥ 2` | **Séparation adoucie** de `LIST` avec 2 ou 3 couleurs, **camembert** de `LIST.length` secteurs avec 4 ou plus |
+| 3 | `LIST ≥ 3`, aspect **Tricolor**, pas **Rainbow** | **Balayage conique** de `LIST` |
+| 3b | `LIST ≥ 2` | **Séparation adoucie** de `LIST` avec 2 ou 3 couleurs, **camembert** de `LIST.length` secteurs avec 4 ou plus |
 | 4 | `LIST == 1` | Couleur unie — **prime sur la couleur de la puce** |
 | 5 | aspect **Rainbow** *et* **Tricolor** | Dégradé, 3 arrêts |
 | 6 | aspect **Rainbow** *et* **Bicolor** | Dégradé, 2 arrêts |
 | 7 | aspect **Rainbow** | Dégradé sur `SLOTS` ; 1 emplacement → uni ; 0 emplacement → les 6 couleurs par défaut |
-| 8 | aspect **Tricolor** | **Séparation adoucie**, 135°, sur `SLOTS` (emplacement 3 manquant → séparation adoucie à 2 couleurs sur les emplacements 1 et 2, sans répéter l'emplacement 1) |
+| 8 | aspect **Tricolor** | **Balayage conique** sur `SLOTS` (emplacement 3 manquant → séparation adoucie à 2 couleurs sur les emplacements 1 et 2, sans répéter l'emplacement 1) |
 | 9 | aspect **Bicolor** | **Séparation adoucie**, 135°, sur les emplacements 1 et 2 |
 | 10 | sinon | Emplacement 1 uni ; rien du tout → `#1c2030` |
 
