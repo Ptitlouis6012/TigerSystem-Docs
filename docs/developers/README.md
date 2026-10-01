@@ -38,9 +38,11 @@ The governance is deliberately two-gated: **anyone** may implement the
 protocol and say "compatible with TigerTag" — no permission, ever — and show
 the TigerTag logo, unmodified, to say so: in your app, your documentation, your
 store listing. That referential use is free. Only **certified partners**
-(listed in the certified registry) may apply the mark **on a chip, carrier,
-spool or packaging**, where it stops describing compatibility and starts
-asserting origin, and only they may issue **TigerTag+ signatures** (TigerTag
+(listed in the certified registry) may put the mark — logo **or name** — **on a
+chip of any format (chip, inlay, sticker, label, carrier), a spool or its
+packaging**, where it stops describing compatibility and starts asserting
+origin; plain-text *"Compatible with TigerTag"* on the box of a compatible
+reader, printer or app stays free, and only they may issue **TigerTag+ signatures** (TigerTag
 holds the private key). The trademark gate is marketing; the signature gate
 is technical; **neither restricts the protocol by one line** — an uncertified
 chip works perfectly, it just can't prove its origin.

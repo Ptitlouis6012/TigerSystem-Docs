@@ -40,14 +40,29 @@ Usage — the two-gates model:
  *referential* use is free: it is a factual statement that your product talks
  to TigerTag chips. It must never be presented as a seal, a badge of quality,
  or an implication of affiliation.
+- **Anyone** may also write *"Compatible with TigerTag"* **in plain text** on
+ the packaging, product page or manual of a product that reads or writes
+ TigerTag chips (a reader, a printer, software) — the descriptive use trademark
+ law tolerates: no logo, no stylised lettering, no *"official"* or
+ *"certified"*, and never on a chip or a consumable.
 - Only a **certified partner** (see *TigerTag Certified*, listed in
  [the certified-partner registry](https://wiki.tigersystem.io/certified-partners/))
- may apply the mark **on a chip, an inlay, a carrier, a
- label, a spool, a resin bottle or its packaging**, use the TigerTag name
- **commercially as a product designation**, or **issue TigerTag+ signatures**
- — TigerTag holds the private key. Applied to a product, the mark no longer
- says *"this works with TigerTag"*; it says *"this **is** a TigerTag"* — an
- assertion about origin, which is ours to make.
+ may reproduce the TigerTag **logo or name** ("TigerTag", "TigerTag+",
+ "TigerTag+ Certified") **on an RFID / NFC chip of any format** — chip, inlay,
+ sticker, label, card, key fob, carrier — or **on a spool, a resin bottle, a
+ refill or their packaging**, use the TigerTag name **commercially as a product
+ designation**, or **issue TigerTag+ signatures** — TigerTag holds the private
+ key. Applied to a product, the mark no longer says *"this works with
+ TigerTag"*; it says *"this **is** a TigerTag"* — an assertion about origin,
+ which is ours to make. Writing TigerTag data into a chip's memory stays free.
+- **On products, the rules are the Connectivity Standards Alliance's for
+ Zigbee and Matter**: a certified product **must display** the mark and is
+ listed in the registry; certified chips, inlays, carriers and reader modules
+ are **TigerTag Compliant Platforms** and do not certify the product they go
+ into; the mark never goes into a product, company, domain, subdomain or
+ social-handle name; the licence is limited and revocable. The one deliberate
+ difference: Matter is reserved to members, while the TigerTag referential
+ tier stays open to everyone, because the protocol is.
 - **Reselling changes nothing.** Official chips are manufactured by
  TigerSystem and already carry the mark. Any distributor or reseller of
  genuine chips may describe and list them as official TigerTag product; they

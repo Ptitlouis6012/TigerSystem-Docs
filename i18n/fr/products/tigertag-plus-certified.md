@@ -1,5 +1,5 @@
 ---
-sourceHash: a441174f740b32338860a4b6a58babca49eed24ed8af7f05cf26e06f55cda504
+sourceHash: e35244386df439d1c2c49dc5f9e8f384ea5b8f2bc1dfe8b8e90b4a7c73b8e5bd
 sourcePath: docs/products/tigertag-plus-certified.md
 ---
 
@@ -68,8 +68,9 @@ signature de 64 octets aux pages `0x18`–`0x27` — est spécifiée dans
 
 La liste faisant foi des fabricants autorisés à apposer la marque sur un
 produit est le [registre des partenaires certifiés](../certified-partners.md).
-Un logo sur une puce, un carrier, une bobine ou son emballage n'est autorisé
-que pour les fabricants figurant sur cette page.
+Le logo ou le nom TigerTag sur une puce de quelque format que ce soit, un
+carrier, une bobine ou son emballage n'est autorisé que pour les fabricants
+figurant sur cette page.
 
 ---
 

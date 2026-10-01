@@ -1,5 +1,5 @@
 ---
-sourceHash: dcfd1f98e794efef047aae6a14e78111ee8b126a62fb971e7d7913a851120144
+sourceHash: 76ef763ccd1b41e1b5203fc1f2abe006e5e2b492e129510932ab728b6a57ae4e
 sourcePath: docs/products/tigertag.md
 ---
 
@@ -95,13 +95,13 @@ Qui a le droit de dire quoi, lorsqu'une puce est mise en vente :
 | **TigerSystem** | les puces qu'il fabrique | **officiel** — c'est nous | oui — c'est lui qui appose la marque |
 | **Tout revendeur ou distributeur** | ces mêmes puces authentiques | **officiel** — la marchandise l'est | oui — la marque est déjà dessus |
 | **Un tiers audité par TigerSystem** | tout ce qu'il a fabriqué — puces, inlays, carriers, un appareil, une application | **certifié** — accordé, audité, référencé, retirable | oui, sur le produit |
-| **Quiconque fabrique sa propre puce** | sa propre puce compatible | *« compatible with TigerTag »* — et avec **TigerTag+** s'il vérifie les signatures. Jamais *« certified »*, que seul TigerSystem accorde | dans son application, sa documentation et sa fiche produit — **jamais sur la puce, le carrier, la bobine ou l'emballage** |
+| **Quiconque fabrique sa propre puce** | sa propre puce compatible | *« compatible with TigerTag »* — et avec **TigerTag+** s'il vérifie les signatures. Jamais *« certified »*, que seul TigerSystem accorde | dans son application, sa documentation et sa fiche produit ; « Compatible with TigerTag » en texte seul sur la boîte d'un appareil compatible — **jamais le logo ni le nom sur la puce (quel que soit son format), le carrier, la bobine ou l'emballage** |
 
 Cette dernière distinction constitue toute la politique de marque, et elle est
 plus étroite qu'il n'y paraît. Dire que votre produit *dialogue avec* TigerTag
 est un fait sur votre produit, et montrer le logo pour le dire est libre.
-Apposer la marque **sur** une puce est une affirmation sur **qui l'a
-fabriquée** : elle cesse de signifier « ceci fonctionne avec TigerTag » pour
+Apposer la marque — logo ou nom — **sur** une puce, quel que soit son format,
+est une affirmation sur **qui l'a fabriquée** : elle cesse de signifier « ceci fonctionne avec TigerTag » pour
 signifier « ceci *est* un TigerTag ». Seul ce second usage demande une
 autorisation écrite. Voir [TRADEMARK.md](../../TRADEMARK.md).
 

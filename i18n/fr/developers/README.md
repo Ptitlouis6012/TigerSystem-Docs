@@ -1,5 +1,5 @@
 ---
-sourceHash: dbd78eb2f02db455a2f9d0c54788c50a84b2c83b37d02e49d90f48adbd504d71
+sourceHash: 88f0499b9f2d256540c7d6eeb20351af9670b38bde5f3f53b982955732a3ea85
 sourcePath: docs/developers/README.md
 ---
 
@@ -46,9 +46,12 @@ implémenter le protocole et dire « compatible avec TigerTag » — sans
 autorisation, jamais — et afficher le logo TigerTag, non modifié, pour le dire :
 dans votre application, votre documentation, votre fiche en boutique. Cet usage
 référentiel est libre. Seuls les **partenaires certifiés** (listés dans le
-registre des certifiés) peuvent apposer la marque **sur une puce, un support,
+registre des certifiés) peuvent apposer la marque — logo **ou nom** — **sur une
+puce de quelque format que ce soit (puce, inlay, sticker, étiquette, support),
 une bobine ou un emballage**, où elle cesse de décrire une compatibilité pour
-affirmer une origine, et eux seuls peuvent émettre des **signatures TigerTag+**
+affirmer une origine ; la mention en texte seul « Compatible with TigerTag » sur
+la boîte d'un lecteur, d'une imprimante ou d'une application compatibles reste
+libre, et eux seuls peuvent émettre des **signatures TigerTag+**
 (TigerTag détient la clé privée). La porte de la marque relève du marketing ;
 la porte de la signature relève de la technique ; **aucune des deux ne
 restreint le protocole d'une seule ligne** — une puce non certifiée fonctionne
