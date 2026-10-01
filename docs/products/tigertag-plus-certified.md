@@ -58,9 +58,9 @@ The byte-level layout — chip type ids, the 64-byte signature area at pages
 ## Who is certified
 
 The authoritative list of manufacturers allowed to put the mark on a product is
-the [certified partners registry](../certified-partners.md). A logo on a chip,
-a carrier, a spool or its packaging is only authorized for the makers on that
-page.
+the [certified partners registry](../certified-partners.md). The TigerTag logo
+or name on a chip of any format, a carrier, a spool or its packaging is only
+authorized for the makers on that page.
 
 ---
 

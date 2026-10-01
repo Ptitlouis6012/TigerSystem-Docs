@@ -85,12 +85,12 @@ Who may say what, when a chip is for sale:
 | **TigerSystem** | the chips it manufactures | **official** — made by us | yes — it applies the mark |
 | **Any reseller or distributor** | those same genuine chips | **official** — the goods are | yes — the mark is already on them |
 | **A third party TigerSystem has audited** | anything it built — chips, inlays, carriers, a device, an app | **certified** — granted, audited, listed, withdrawable | yes, on the product |
-| **Anyone making their own chip** | their own compatible chip | *"compatible with TigerTag"* — and with **TigerTag+** if it verifies signatures. Never *"certified"*, which only TigerSystem grants | in their app, docs and store listing — **never on the chip, carrier, spool or packaging** |
+| **Anyone making their own chip** | their own compatible chip | *"compatible with TigerTag"* — and with **TigerTag+** if it verifies signatures. Never *"certified"*, which only TigerSystem grants | in their app, docs and store listing; *"Compatible with TigerTag"* in plain text on a compatible device's box — **never the logo or the name on the chip (any format), carrier, spool or packaging** |
 
 That last distinction is the whole trademark policy, and it is narrower than it
 looks. Saying your product *talks to* TigerTag is a fact about your product,
-and showing the logo to say so is free. Putting the mark **on** a chip is a
-statement about **who made it** — it stops meaning "this works with TigerTag"
+and showing the logo to say so is free. Putting the mark — logo or name —
+**on** a chip of any format is a statement about **who made it** — it stops meaning "this works with TigerTag"
 and starts meaning "this *is* a TigerTag". Only that second use needs written
 authorization. See [TRADEMARK.md](../../TRADEMARK.md).
 
