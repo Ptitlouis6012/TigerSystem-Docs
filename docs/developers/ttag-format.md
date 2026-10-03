@@ -69,7 +69,7 @@ At **record level**:
 | Core identity (present on every well-formed record) | `id_material`, `id_type`, `id_aspect1`, `id_tigertag` — resolved against the shared reference database |
 | Capacity | Normalized from `measure` + `id_unit`: **`measure_gr` in grams for solids** (e.g. `measure: 1` + kg → `measure_gr: 1000`) and **`measure_ml` in milliliters for liquids** (resins). Generators may provide `measure` + `id_unit`; the normalized value is the canonical stored one |
 | Common optional | color fields (`color_r/g/b`, `online_color_list`…), `weight_available`, `container_id` / `container_weight`, display strings (`material`, `series`, `color_name`), `TD`, `tags`, `sku` / `barcode`, `Link*`, `url_img*` |
-| Conditional | `twin_tag_uid` (twins only — reciprocal within the file) · `rfidBackup: true` **plus** a matching `rfidBackups` entry (TigerTag+ only) · `id_product` (known catalogue products only) |
+| Conditional | `twin_tag_uid` (twins only — reciprocal within the file) · `tag_index` / `tag_count` (chip-backed records only — chip *i* of *n* read from chip byte +39, TigerTag protocol v2.2; one nibble each, `0` = unknown; never on a chipless record) · `rfidBackup: true` **plus** a matching `rfidBackups` entry (TigerTag+ only) · `id_product` (known catalogue products only) |
 | Carried but ignored on import | `rack`, `rack_id`, `level`, `position` |
 
 For any edge case not covered here, the **Tiger Studio importer is the
@@ -222,7 +222,7 @@ A faithful, anonymized multi-selection export — one TigerData, one twin pair
    "online_color_list": "D4AF37",
    "measure_gr": 1000, "weight_available": 500,
    "container_id": 3, "container_weight": 215,
-   "twin_tag_uid": "04F6E5D4C3B2A1",
+   "twin_tag_uid": "04F6E5D4C3B2A1", "tag_index": 1, "tag_count": 2,
    "rfidBackup": false, "updatedAt": 1769212800000
   },
   {
@@ -234,7 +234,7 @@ A faithful, anonymized multi-selection export — one TigerData, one twin pair
    "online_color_list": "00825A",
    "measure_gr": 1000, "weight_available": 500,
    "container_id": 3, "container_weight": 215,
-   "twin_tag_uid": "04A1B2C3D4E5F6",
+   "twin_tag_uid": "04A1B2C3D4E5F6", "tag_index": 2, "tag_count": 2,
    "rfidBackup": false, "updatedAt": 1769212800000
   },
   {

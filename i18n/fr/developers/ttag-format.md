@@ -1,5 +1,5 @@
 ---
-sourceHash: 087d1aab4c52325f1acfa066df4feadc030b9ef1f7c6df6d20e99557542517da
+sourceHash: 551d534fd3d554ae4db42c43701bf66647afcbe1ff812f7264bb1ff79aff43a8
 sourcePath: docs/developers/ttag-format.md
 ---
 
@@ -75,7 +75,7 @@ Au **niveau de l'enregistrement** :
 | Identité de base (présente sur tout enregistrement bien formé) | `id_material`, `id_type`, `id_aspect1`, `id_tigertag` — résolus contre la base de référence partagée |
 | Capacité | Normalisée à partir de `measure` + `id_unit` : **`measure_gr` en grammes pour les solides** (par ex. `measure: 1` + kg → `measure_gr: 1000`) et **`measure_ml` en millilitres pour les liquides** (résines). Les générateurs peuvent fournir `measure` + `id_unit` ; c'est la valeur normalisée qui fait foi une fois stockée |
 | Facultatifs courants | champs de couleur (`color_r/g/b`, `online_color_list`…), `weight_available`, `container_id` / `container_weight`, chaînes d'affichage (`material`, `series`, `color_name`), `TD`, `tags`, `sku` / `barcode`, `Link*`, `url_img*` |
-| Conditionnels | `twin_tag_uid` (jumeaux uniquement — réciproque à l'intérieur du fichier) · `rfidBackup: true` **plus** une entrée `rfidBackups` correspondante (TigerTag+ uniquement) · `id_product` (produits connus du catalogue uniquement) |
+| Conditionnels | `twin_tag_uid` (jumeaux uniquement — réciproque à l'intérieur du fichier) · `tag_index` / `tag_count` (enregistrements avec puce uniquement — puce *i* sur *n* lue à l'octet +39 de la puce, protocole TigerTag v2.2 ; un quartet chacun, `0` = inconnu ; jamais sur un enregistrement sans puce) · `rfidBackup: true` **plus** une entrée `rfidBackups` correspondante (TigerTag+ uniquement) · `id_product` (produits connus du catalogue uniquement) |
 | Transportés mais ignorés à l'import | `rack`, `rack_id`, `level`, `position` |
 
 Pour tout cas limite non traité ici, **l'importateur de Tiger Studio fait office
@@ -240,7 +240,7 @@ jumeaux (`twin_tag_uid` réciproque), un TigerTag+ dont le contenu de puce est s
    "online_color_list": "D4AF37",
    "measure_gr": 1000, "weight_available": 500,
    "container_id": 3, "container_weight": 215,
-   "twin_tag_uid": "04F6E5D4C3B2A1",
+   "twin_tag_uid": "04F6E5D4C3B2A1", "tag_index": 1, "tag_count": 2,
    "rfidBackup": false, "updatedAt": 1769212800000
   },
   {
@@ -252,7 +252,7 @@ jumeaux (`twin_tag_uid` réciproque), un TigerTag+ dont le contenu de puce est s
    "online_color_list": "00825A",
    "measure_gr": 1000, "weight_available": 500,
    "container_id": 3, "container_weight": 215,
-   "twin_tag_uid": "04A1B2C3D4E5F6",
+   "twin_tag_uid": "04A1B2C3D4E5F6", "tag_index": 2, "tag_count": 2,
    "rfidBackup": false, "updatedAt": 1769212800000
   },
   {
