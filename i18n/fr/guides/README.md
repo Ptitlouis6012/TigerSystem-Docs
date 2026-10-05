@@ -1,5 +1,5 @@
 ---
-sourceHash: a99c0750adf8a6d7d2849cc06cdc883982f7fc088249431dde605011a952e761
+sourceHash: e520cc8d5e0ea7a5ba261b8c2c9261030411eef1123d7c81b9f024868cb0c127
 sourcePath: docs/guides/README.md
 ---
 
@@ -16,6 +16,9 @@ Guides pratiques orientés tâche (plus courts et plus ciblés que les
 - **[Quand les deux puces d'une bobine se lisent comme deux bobines](./twin-tag-pair.md)** — le
   seul test qui tranche, pourquoi deux passes d'écriture séparées ne peuvent
   jamais faire une paire, et comment réécrire les deux puces en une seule.
+- **[Connecter un assistant IA à votre compte](./connect-an-ai-assistant.md)** —
+  laisser Claude, ChatGPT ou tout client MCP lire vos bobines, racks et
+  imprimantes, et lui couper l'accès depuis votre compte.
 
 > **TODO :** d'autres guides prévus :
 >

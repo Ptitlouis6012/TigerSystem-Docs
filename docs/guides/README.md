@@ -11,6 +11,9 @@ Task-oriented how-to guides (shorter and more targeted than
 - **[When a spool's two chips read as two spools](./twin-tag-pair.md)** — the
   one test that settles it, why two separate write passes can never make a
   pair, and how to rewrite the two chips as one.
+- **[Connect an AI assistant to your account](./connect-an-ai-assistant.md)** —
+  let Claude, ChatGPT or any MCP client read your spools, racks and printers,
+  and cut it off from your account.
 
 > **TODO:** more guides planned:
 >

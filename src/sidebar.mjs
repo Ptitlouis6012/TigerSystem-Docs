@@ -83,6 +83,7 @@ export const sidebar = [
     { slug: 'tutorials/tigerscale-serial-port-driver', label: 'TigerScale: fixing a missing COM port', translations: { fr: 'TigerScale : faire apparaître le port COM' } },
     { slug: 'guides' },
     { slug: 'guides/twin-tag-pair' },
+    { slug: 'guides/connect-an-ai-assistant' },
     { slug: 'guides/filament-materials-guide' },
   ]),
 
