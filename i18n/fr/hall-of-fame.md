@@ -1,5 +1,5 @@
 ---
-sourceHash: f8e4b5c0431b4d1af669d3d82aab273324382a7f72405fdc629db399a52b3d09
+sourceHash: 38e0ed6d4e3a27734dd32384a1a43d0997347708ecfabe7469c92bacd127b158
 sourcePath: docs/hall-of-fame.md
 ---
 
@@ -22,21 +22,22 @@ réclamation.
 
 | Qui | Commits | Pull requests | Issues |
 |---|---|---|---|
-| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 35 | 44 | 2 |
-| **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 8 | 7 |
+| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 37 | 44 | 2 |
+| **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 8 | 8 |
 | **[@ennisj](https://github.com/ennisj)** | 21 | 7 | — |
 | **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 5 | 1 |
 | **[@ImNanou](https://github.com/ImNanou)** | — | — | 5 |
+| **[@anupamme](https://github.com/anupamme)** | — | 2 | — |
 | **[@physicsG](https://github.com/physicsG)** | — | — | 2 |
 | **[@sjordan0228](https://github.com/sjordan0228)** | — | — | 2 |
 | **[@clauzet-rgb](https://github.com/clauzet-rgb)** | — | 1 | — |
 | **[@TrueFurina](https://github.com/TrueFurina)** | — | 1 | — |
 | **[@sancho0410](https://github.com/sancho0410)** | — | 1 | — |
-| **[@anupamme](https://github.com/anupamme)** | — | 1 | — |
 | **[@solide184](https://github.com/solide184)** | — | — | 1 |
 | **[@AlexandraWhiksla](https://github.com/AlexandraWhiksla)** | — | — | 1 |
 | **[@Exsilium122](https://github.com/Exsilium122)** | — | — | 1 |
 | **[@jbast1224](https://github.com/jbast1224)** | — | — | 1 |
+| **[@ericbenoist07](https://github.com/ericbenoist07)** | — | — | 1 |
 | **[@wintry](https://github.com/wintry)** | — | — | 1 |
 | **[@3D-Frank](https://github.com/3D-Frank)** | — | — | 1 |
 
