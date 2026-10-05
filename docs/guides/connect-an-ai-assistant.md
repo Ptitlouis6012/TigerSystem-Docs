@@ -21,12 +21,13 @@ can use it.
 - your spools: brand, material, colours, weight left, temperatures, where each
   one is stored;
 - your racks, your wishlists and your stock history;
-- your printers — **including their access codes** — and your TigerScales;
+- your printers and your TigerScales — **never their access codes or passwords**;
 - what your friends share with you (their spools, racks and wishlists).
 
 It **cannot change anything**: every tool is read-only. It reads as you, under
-the same access rules as the apps, so it can never see another account. Your
-account's own secrets (private key, e-mail) are never returned.
+the same access rules as the apps, so it can never see another account.
+Credentials — printer access codes, cloud logins, your private key, your
+e-mail — are never returned, whatever it asks.
 
 ## Claude (web, desktop, mobile)
 

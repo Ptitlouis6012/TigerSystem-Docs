@@ -1,5 +1,5 @@
 ---
-sourceHash: 3fe6055af094fd8e7406ff91d6def456705efa046e600819010957d5069d33a9
+sourceHash: 3aebd22a8c844c341e22921151a3ee1dd33de9d226613320a26e66a61237314e
 sourcePath: docs/guides/connect-an-ai-assistant.md
 ---
 
@@ -26,13 +26,14 @@ serveurs MCP distants avec OAuth peut l'utiliser.
 - vos bobines : marque, matière, couleurs, poids restant, températures, et où
   chacune est rangée ;
 - vos racks, vos listes d'envies et l'historique de votre stock ;
-- vos imprimantes — **codes d'accès compris** — et vos TigerScales ;
+- vos imprimantes et vos TigerScales — **jamais leurs codes d'accès ni mots de passe** ;
 - ce que vos amis partagent avec vous (leurs bobines, racks et listes d'envies).
 
 Il **ne peut rien modifier** : chaque outil est en lecture seule. Il lit en
 votre nom, avec les mêmes règles d'accès que les apps, donc il ne voit jamais
-un autre compte. Les secrets de votre compte (clé privée, e-mail) ne sont
-jamais renvoyés.
+un autre compte. Les identifiants — codes d'accès des imprimantes, connexions
+cloud, votre clé privée, votre e-mail — ne sont jamais renvoyés, quoi qu'il
+demande.
 
 ## Claude (web, bureau, mobile)
 
