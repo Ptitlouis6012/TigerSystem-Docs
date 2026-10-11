@@ -1,5 +1,5 @@
 ---
-sourceHash: 73f4eabd75d5b890d0cd2bdcd0620ec3de0fef4e005c8b85feaa0cca2b2c89d5
+sourceHash: c61c1585da2dff7d7c609d82b11ab90e8867dcf79dbf4eb614c1ff5159162afa
 sourcePath: docs/tigersquad.md
 ---
 
@@ -49,7 +49,7 @@ réellement dans votre compte. Personne ne déclare le sien.
 |---|---|---|---|
 | **Bronze** | **Silver** | **Gold** | **Platinum** |
 | *Commencez l'aventure* | *Devenez actif* | *Soutenez davantage* | *Faites partie des piliers* |
-| Vous avez rejoint, gratuitement. | 20 puces TigerTag ou plus, de tout type, dans votre compte — TigerTag, TigerTag+ ou certifiées. | Vous avez soutenu le projet par un don. | Un don **et** 50 TigerTag+ certifiées ou plus. |
+| Vous avez rejoint, gratuitement. | 20 puces TigerTag ou plus, de tout type, dans votre compte — TigerTag, TigerTag+ ou TigerTag+ Certified. | Vous avez soutenu le projet par un don. | Un don **et** 50 TigerTag+ Certified ou plus. |
 
 > **Note :** un don seul ne donne aucun badge. Le badge vient avec l'adhésion
 > à la TigerSquad — donnez d'abord, rejoignez ensuite, et le niveau Gold vous
@@ -68,7 +68,7 @@ Les XP sont comptés par le serveur, **une seule fois par puce physique** (son U
 
 | Puce | XP |
 |---|---|
-| [TigerTag+ certifiée](./products/tigertag-plus-certified.md) | **10** |
+| [TigerTag+ Certified](./products/tigertag-plus-certified.md) | **10** |
 | [TigerTag+](./products/tigertag-plus.md) | **2** |
 | [TigerTag](./products/tigertag.md) | **1** |
 | TigerData (sans puce) | 0 |
@@ -85,11 +85,11 @@ Les petites lignes, qui sont surtout de bonnes nouvelles :
 - **Reprogrammer une puce** sur le même UID ne rapporte rien de plus. La seule
   chose qui puisse faire monter une puce après coup, c'est une preuve de
   certification arrivée plus tard : elle passe alors à 10.
-- **« Certifiée »** signifie que la sauvegarde de la puce a été vérifiée contre
+- **« Certified »** signifie que la sauvegarde de la puce a été vérifiée contre
   la signature d'usine TigerTag (ECDSA) avec le SDK TigerTag.
 
 Vos XP s'affichent sous votre nom dans la barre latérale et dans **Mon profil**,
-par exemple *407 XP · 19 TigerTag+ certifiées*.
+par exemple *407 XP · 19 TigerTag+ Certified*.
 
 ## Le mur public
 
@@ -99,7 +99,7 @@ n'affiche que ce qu'on attend d'un classement :
 
 | Affiché | Jamais affiché |
 |---|---|
-| Pseudo, avatar, niveau, XP, nombre de TigerTag+ certifiées | Le montant de vos dons |
+| Pseudo, avatar, niveau, XP, nombre de TigerTag+ Certified | Le montant de vos dons |
 
 ## Soutenir le projet
 
@@ -131,4 +131,4 @@ TigerSquad — le niveau Gold.
 
 ---
 
-**▲ [Index de la documentation](../README.md)** · **Voir aussi :** [Soutenir le projet](./support.md), [Hall of Fame](./hall-of-fame.md), [Tiger Studio](./products/tiger-studio.md), [TigerTag+ certifiée](./products/tigertag-plus-certified.md)
+**▲ [Index de la documentation](../README.md)** · **Voir aussi :** [Soutenir le projet](./support.md), [Hall of Fame](./hall-of-fame.md), [Tiger Studio](./products/tiger-studio.md), [TigerTag+ Certified](./products/tigertag-plus-certified.md)

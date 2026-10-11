@@ -43,7 +43,7 @@ Nobody declares their own.
 |---|---|---|---|
 | **Bronze** | **Silver** | **Gold** | **Platinum** |
 | *Start the adventure* | *Get active* | *Give a bit more* | *One of the pillars* |
-| You joined, for free. | 20 or more TigerTag chips of any kind in your account — TigerTag, TigerTag+ or certified. | You supported the project with a donation. | A donation **and** 50 or more certified TigerTag+. |
+| You joined, for free. | 20 or more TigerTag chips of any kind in your account — TigerTag, TigerTag+ or TigerTag+ Certified. | You supported the project with a donation. | A donation **and** 50 or more TigerTag+ Certified. |
 
 > **Note:** a donation on its own gives no badge. The badge comes with joining
 > the TigerSquad — donate first and join later, and the Gold level is waiting
@@ -62,7 +62,7 @@ XP is counted by the server, **once per physical chip** (its UID):
 
 | Chip | XP |
 |---|---|
-| [Certified TigerTag+](./products/tigertag-plus-certified.md) | **10** |
+| [TigerTag+ Certified](./products/tigertag-plus-certified.md) | **10** |
 | [TigerTag+](./products/tigertag-plus.md) | **2** |
 | [TigerTag](./products/tigertag.md) | **1** |
 | TigerData (no chip) | 0 |
@@ -81,7 +81,7 @@ The fine print, which is mostly good news:
   TigerTag factory signature (ECDSA) with the TigerTag SDK.
 
 Your XP sits under your name in the sidebar and in **My profile**, for example
-*407 XP · 19 certified TigerTag+*.
+*407 XP · 19 TigerTag+ Certified*.
 
 ## The public wall
 
@@ -91,7 +91,7 @@ you would expect a ranking to show:
 
 | Shown | Never shown |
 |---|---|
-| Pseudo, avatar, level, XP, number of certified TigerTag+ | Any amount you gave |
+| Pseudo, avatar, level, XP, number of TigerTag+ Certified | Any amount you gave |
 
 ## Supporting the project
 
@@ -122,4 +122,4 @@ TigerSquad — the Gold level.
 
 ---
 
-**▲ [Documentation index](../README.md)** · **Related:** [Support the project](./support.md), [Hall of Fame](./hall-of-fame.md), [Tiger Studio](./products/tiger-studio.md), [TigerTag+ certified](./products/tigertag-plus-certified.md)
+**▲ [Documentation index](../README.md)** · **Related:** [Support the project](./support.md), [Hall of Fame](./hall-of-fame.md), [Tiger Studio](./products/tiger-studio.md), [TigerTag+ Certified](./products/tigertag-plus-certified.md)
