@@ -1,5 +1,5 @@
 ---
-sourceHash: 32526bee845542a337da439f390e7e178ff09413159c27037fbaeddd7d89480e
+sourceHash: 16557b4d2b974215649b39a6f8d9e836c262c70cc4c076ddb64cb9a653744104
 sourcePath: docs/hall-of-fame.md
 ---
 
@@ -22,7 +22,7 @@ réclamation.
 
 | Qui | Commits | Pull requests | Issues |
 |---|---|---|---|
-| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 37 | 44 | 2 |
+| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 52 | 59 | 4 |
 | **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 8 | 8 |
 | **[@ennisj](https://github.com/ennisj)** | 21 | 7 | — |
 | **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 5 | 1 |
@@ -33,10 +33,14 @@ réclamation.
 | **[@clauzet-rgb](https://github.com/clauzet-rgb)** | — | 1 | — |
 | **[@TrueFurina](https://github.com/TrueFurina)** | — | 1 | — |
 | **[@sancho0410](https://github.com/sancho0410)** | — | 1 | — |
+| **[@neonlyte54-alt](https://github.com/neonlyte54-alt)** | — | — | 1 |
 | **[@solide184](https://github.com/solide184)** | — | — | 1 |
 | **[@AlexandraWhiksla](https://github.com/AlexandraWhiksla)** | — | — | 1 |
+| **[@elphield](https://github.com/elphield)** | — | — | 1 |
 | **[@Exsilium122](https://github.com/Exsilium122)** | — | — | 1 |
 | **[@jbast1224](https://github.com/jbast1224)** | — | — | 1 |
+| **[@Truggy](https://github.com/Truggy)** | — | — | 1 |
+| **[@Antalysfr](https://github.com/Antalysfr)** | — | — | 1 |
 | **[@ericbenoist07](https://github.com/ericbenoist07)** | — | — | 1 |
 | **[@wintry](https://github.com/wintry)** | — | — | 1 |
 | **[@3D-Frank](https://github.com/3D-Frank)** | — | — | 1 |
