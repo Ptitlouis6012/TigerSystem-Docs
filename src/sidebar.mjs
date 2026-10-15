@@ -81,6 +81,7 @@ export const sidebar = [
     { slug: 'tutorials/elegoo-cc2-lan-mode', label: 'Elegoo CC2: LAN mode', translations: { fr: 'Elegoo CC2 : mode LAN' } },
     { slug: 'tutorials/flashforge-connection-tutorial', label: 'FlashForge: connection tutorial', translations: { fr: 'FlashForge : tutoriel de connexion' } },
     { slug: 'tutorials/tigerscale-serial-port-driver', label: 'TigerScale: fixing a missing COM port', translations: { fr: 'TigerScale : faire apparaître le port COM' } },
+    { slug: 'tutorials/send-a-request' },
     { slug: 'guides' },
     { slug: 'guides/twin-tag-pair' },
     { slug: 'guides/connect-an-ai-assistant' },
