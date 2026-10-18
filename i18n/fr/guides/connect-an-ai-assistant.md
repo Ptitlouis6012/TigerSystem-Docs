@@ -1,13 +1,13 @@
 ---
-sourceHash: 3aebd22a8c844c341e22921151a3ee1dd33de9d226613320a26e66a61237314e
+sourceHash: 0e6688545912b18c6ae1fad22f64df0336134278547a6fcd2df93bfe2b92a63d
 sourcePath: docs/guides/connect-an-ai-assistant.md
 ---
 
 # Connecter un assistant IA à votre compte
 
 Demandez à Claude ou à ChatGPT « combien de PETG il me reste ? » et obtenez la
-réponse depuis votre propre inventaire. Le connecteur TigerTag permet à un
-assistant IA de **lire** votre compte — rien de plus. C'est la même idée que le
+réponse depuis votre propre inventaire. Le connecteur TigerSystem permet à un
+assistant IA de **lire** votre compte TigerSystem — rien de plus. C'est la même idée que le
 serveur local de Tiger Studio, mais hébergée : ça marche depuis le web, depuis
 un téléphone, et sans que Studio soit ouvert.
 
@@ -38,12 +38,12 @@ demande.
 ## Claude (web, bureau, mobile)
 
 1. **Réglages → Connecteurs → Ajouter un connecteur personnalisé.**
-2. Nommez-le `TigerTag`, collez l'adresse ci-dessus, laissez vides les champs
+2. Nommez-le `TigerSystem`, collez l'adresse ci-dessus, laissez vides les champs
    OAuth avancés, et ajoutez-le.
 3. Cliquez **Connecter**. Vous arrivez sur tigersystem.io : connectez-vous,
    vérifiez que la page indique que les réponses partent vers claude.ai, et
    cliquez **Autoriser**.
-4. Dans une conversation, activez le connecteur TigerTag depuis le menu des
+4. Dans une conversation, activez le connecteur TigerSystem depuis le menu des
    outils et posez votre question.
 
 ## ChatGPT
@@ -53,7 +53,7 @@ sur les offres Business, c'est un administrateur qui l'active).
 
 1. **Réglages → Apps et connecteurs → Paramètres avancés → Mode développeur**
    activé.
-2. **Créez** un connecteur : nom `TigerTag`, l'adresse ci-dessus,
+2. **Créez** un connecteur : nom `TigerSystem`, l'adresse ci-dessus,
    authentification **OAuth**, sans identifiant ni secret client.
 3. Connectez-vous sur tigersystem.io et cliquez **Autoriser**.
 4. Dans une nouvelle conversation, activez le connecteur et posez votre
