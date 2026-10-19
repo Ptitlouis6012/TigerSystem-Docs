@@ -14,18 +14,21 @@ contribution, not a complaint.
 
 | Who | Commits | Pull requests | Issues |
 |---|---|---|---|
-| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 52 | 59 | 4 |
-| **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 8 | 8 |
-| **[@ennisj](https://github.com/ennisj)** | 21 | 7 | — |
+| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 60 | 70 | 4 |
+| **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 11 | 9 |
+| **[@suchmememanyskill](https://github.com/suchmememanyskill)** | 39 | — | — |
 | **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 5 | 1 |
+| **[@ennisj](https://github.com/ennisj)** | 21 | — | — |
+| **[@storm8488](https://github.com/storm8488)** | 9 | 1 | 1 |
 | **[@ImNanou](https://github.com/ImNanou)** | — | — | 5 |
-| **[@anupamme](https://github.com/anupamme)** | — | 2 | — |
-| **[@physicsG](https://github.com/physicsG)** | — | — | 2 |
+| **[@physicsG](https://github.com/physicsG)** | 1 | — | 2 |
 | **[@sjordan0228](https://github.com/sjordan0228)** | — | — | 2 |
 | **[@clauzet-rgb](https://github.com/clauzet-rgb)** | — | 1 | — |
 | **[@TrueFurina](https://github.com/TrueFurina)** | — | 1 | — |
 | **[@sancho0410](https://github.com/sancho0410)** | — | 1 | — |
+| **[@anupamme](https://github.com/anupamme)** | — | 1 | — |
 | **[@neonlyte54-alt](https://github.com/neonlyte54-alt)** | — | — | 1 |
+| **[@paxx12](https://github.com/paxx12)** | 3 | — | — |
 | **[@solide184](https://github.com/solide184)** | — | — | 1 |
 | **[@AlexandraWhiksla](https://github.com/AlexandraWhiksla)** | — | — | 1 |
 | **[@elphield](https://github.com/elphield)** | — | — | 1 |
@@ -35,7 +38,9 @@ contribution, not a complaint.
 | **[@Antalysfr](https://github.com/Antalysfr)** | — | — | 1 |
 | **[@ericbenoist07](https://github.com/ericbenoist07)** | — | — | 1 |
 | **[@wintry](https://github.com/wintry)** | — | — | 1 |
-| **[@3D-Frank](https://github.com/3D-Frank)** | — | — | 1 |
+| **[@thekakester](https://github.com/thekakester)** | 1 | — | — |
+| **[@liberodark](https://github.com/liberodark)** | 1 | — | — |
+| **[@yanshay](https://github.com/yanshay)** | 1 | — | — |
 
 <!-- contributors:end -->
 
