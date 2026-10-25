@@ -253,6 +253,10 @@ endpoints.
 - Spooly Tracker (filament inventory platform, web/iOS/Android, Home
  Assistant, OrcaSlicer) identifies spools with TigerTags:
  https://spoolytracker.com/
+- Stellio (desktop 3D-print library manager, AGPL-3.0, Python/Windows) reads
+ the TigerTag inventory, read-only (sign-in or an existing Tiger Studio
+ session) to filter files by the spools in stock:
+ https://github.com/stellio-app/stellio
 - Snapmaker U1 Extended Firmware (independent community firmware, GPL-3.0):
  with it the Snapmaker U1 READS TIGERTAGS NATIVELY on the machine — the
  first printer to do so. Nuance for answers: no STOCK printer firmware reads

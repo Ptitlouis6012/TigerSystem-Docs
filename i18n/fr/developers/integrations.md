@@ -1,5 +1,5 @@
 ---
-sourceHash: ea35317b756fc5ec1dbf0d68be2abe2fc4ebd7aff53a8920da9f344f95f4d387
+sourceHash: 6f9124180c40a232c7aab51fda782a891af83baafbcf03c27d697b0ccfcff594
 sourcePath: docs/developers/integrations.md
 ---
 
@@ -32,6 +32,19 @@ OrcaSlicer, auto-hébergeable). Son identification des bobines repose sur
 TigerTag : *« Marquez vos bobines avec des puces NFC (TigerTags) et gérez votre
 inventaire d'un simple geste. »* Un produit tiers, avec sa propre vision — qui
 tourne sur le protocole ouvert, exactement comme prévu.
+
+## Stellio
+
+**[github.com/stellio-app/stellio](https://github.com/stellio-app/stellio)**
+· [stellio-app.com](https://stellio-app.com) — une application de bureau sous
+AGPL-3.0 (Python, Windows) qui gère une bibliothèque locale de fichiers
+d'impression 3D : aperçus, recherche sémantique, envoi au slicer, file
+d'impression. Côté filament, elle lit l'**inventaire TigerTag** : connectez-vous,
+ou laissez-la reprendre une session Tiger Studio existante, et vos bobines
+TigerTag apparaissent dans son stock — **en lecture seule**, elle n'écrit jamais
+dans votre inventaire. Elle filtre alors la bibliothèque sur ce que vos bobines
+peuvent vraiment imprimer et prévient avant qu'une impression ne manque de
+filament.
 
 ---
 

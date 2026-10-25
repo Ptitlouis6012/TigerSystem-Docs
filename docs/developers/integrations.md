@@ -28,6 +28,17 @@ spools with NFC chips (TigerTags) and manage your inventory with a simple
 gesture."* A third-party product, with its own vision — running on the open
 protocol, precisely as intended.
 
+## Stellio
+
+**[github.com/stellio-app/stellio](https://github.com/stellio-app/stellio)**
+· [stellio-app.com](https://stellio-app.com) — an AGPL-3.0 desktop app
+(Python, Windows) that manages a local library of 3D-printing files: previews,
+semantic search, slicer hand-off, print queue. Its filament side reads the
+**TigerTag inventory**: sign in, or let it pick up an existing Tiger Studio
+session, and your TigerTag spools appear in its stock — **read-only**, it never
+writes to your inventory. From there it filters the library down to what your
+spools can actually print and warns before a print runs short.
+
 ---
 
 Building something on TigerTag? Tell us on the
