@@ -1,5 +1,5 @@
 ---
-sourceHash: fca0df9576719d09912e84c43a99779184a91ea0e1ce3dc49640f08df7af6719
+sourceHash: ef622262ecbbfbfc7b045eca0ad1002a3b5b8165b0880db483a296d3ca1aba42
 sourcePath: docs/products/tigertouch.md
 ---
 
@@ -103,7 +103,7 @@ web ne peut pas ajouter d'imprimantes.
 
 Tiger Touch choisit la connexion d'après la **marque**, pas le modèle : toute
 imprimante de ces familles que Tiger Studio peut ajouter, Tiger Touch peut
-l'afficher. Le catalogue de Tiger Studio compte environ 380 modèles de
+l'afficher. Le catalogue de Tiger Studio compte plus de 400 modèles de
 quelque 60 fabricants.
 
 <img src="../assets/tigertouch-printers.png" width="100%" alt="Imprimantes courantes suivies par Tiger Touch : Bambu Lab X1C, Creality K2 Plus, Elegoo Centauri Carbon, Anycubic Kobra S1, Snapmaker U1, FlashForge AD5X, Prusa Core One et une Qidi X-Plus 4 sous Klipper" />
@@ -113,19 +113,21 @@ quelque 60 fabricants.
 | [Bambu Lab](../compatibility/bambu-lab.md) (X1, P1, P2S, A1, H2…) | Cloud Bambu, ou LAN (MQTT sur TLS) | **Oui** — en impression via le cloud (P2S), au repos en mode LAN (X1C, A1) |
 | [Creality](../compatibility/creality.md) (K2, K1, Hi, Ender-3 V4…) | WebSocket sur le LAN | **Oui** — en impression (K2), au repos avec son CFS (Ender-3 V4) |
 | [Snapmaker](../compatibility/snapmaker.md) U1 | WebSocket Moonraker | **Oui** — au repos, quatre têtes d'outil |
-| [FlashForge](../compatibility/flashforge.md) (AD5X, Adventurer 5M, Creator 5) | HTTP sur le LAN | **Oui** — au repos (AD5X) |
-| [Anycubic](../compatibility/anycubic.md) (Kobra 3, Kobra X, Kobra S1…) | Cloud Anycubic, ou LAN (MQTT sur TLS) | **Oui** — au repos via le cloud (Kobra X), avec son ACE |
-| [Elegoo](../compatibility/elegoo.md) Centauri Carbon 1 et 2 | MQTT (CC2), SDCP (CC1) | Pas encore |
-| **Prusa** (MK4, Core One, XL, MINI) | PrusaLink | Pas encore |
-| [Klipper](../compatibility/klipper.md) — Voron, Qidi, Sovol, RatRig… | HTTP Moonraker | Seulement sur l'imprimante de test de Tiger Studio |
+| [FlashForge](../compatibility/flashforge.md) (AD5X, Adventurer 5M, Creator 5, Creator 5 Pro) | HTTP sur le LAN | **Oui** — AD5X : pause, arrêt et lumière |
+| [Anycubic](../compatibility/anycubic.md) (Kobra 3, Kobra X, Kobra S1…) | Cloud Anycubic, ou LAN (MQTT sur TLS) | **Oui** — via le cloud (Kobra X), avec son ACE : lumière, pause, reprise et arrêt |
+| [Elegoo](../compatibility/elegoo.md) Centauri Carbon 1 et 2 | MQTT (CC2), SDCP (CC1) | **Oui** — Centauri Carbon 2 et Centauri Carbon : pause, reprise, arrêt, et la lumière sur la CC2 |
+| **Prusa** (MK4, Core One, XL, MINI) | PrusaLink | **Oui** — progression, températures, pause, reprise, arrêt |
+| [Klipper](../compatibility/klipper.md) — Voron, Qidi, Sovol, RatRig… | HTTP Moonraker | **Oui** — sur une vraie imprimante Klipper : pause, reprise, arrêt et lumière |
 | **OctoPrint** — toute imprimante Marlin derrière | API REST OctoPrint | Seulement sur l'imprimante de test de Tiger Studio |
 
-« Pas encore » signifie écrit d'après le protocole du fabricant et compilé, mais
-jamais exécuté sur cette machine : **un retour depuis votre imprimante est ce que
-vous pouvez envoyer de plus utile.** La pause, la reprise et l'arrêt marchent
-partout où la connexion accepte des commandes (pas via le cloud Bambu ou
-Anycubic) ; la lumière marche partout sauf sur Prusa, OctoPrint et la Centauri
-Carbon 1. Chaque champ et chaque test se trouvent dans l'[état marque par marque](https://github.com/TigerTag-Project/Tiger-Touch/blob/main/docs/PRINTER-COMPATIBILITY.md).
+OctoPrint n'a encore rencontré que l'imprimante de test de Tiger Studio, et chaque
+marque a des modèles que personne n'a encore essayés : **un retour depuis votre
+imprimante est ce que vous pouvez envoyer de plus utile.** La pause, la reprise et
+l'arrêt marchent partout où la connexion accepte des commandes (pas via le cloud
+Bambu) ; la lumière marche partout sauf sur Prusa, OctoPrint et la Centauri
+Carbon 1. Chaque marque a sa page, avec sa mise en route et ses questions, sur le
+[site d'installation](https://tigertag-project.github.io/Tiger-Touch/).
+Chaque champ et chaque test se trouvent dans l'[état marque par marque](https://github.com/TigerTag-Project/Tiger-Touch/blob/main/docs/PRINTER-COMPATIBILITY.md).
 
 **Une imprimante s'affiche « hors ligne » ?** Vérifiez d'abord son mode LAN : il
 est désactivé par défaut sur Creality, FlashForge et Bambu Lab.

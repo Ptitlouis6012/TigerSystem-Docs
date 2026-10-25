@@ -92,7 +92,7 @@ printers.
 
 Tiger Touch picks the connection from the **brand**, not the model: any printer
 of these families that Tiger Studio can add, Tiger Touch can show. Tiger Studio's
-catalogue counts about 380 models from about 60 makers.
+catalogue counts more than 400 models from about 60 makers.
 
 <img src="../assets/tigertouch-printers.png" width="100%" alt="Popular printers Tiger Touch follows: Bambu Lab X1C, Creality K2 Plus, Elegoo Centauri Carbon, Anycubic Kobra S1, Snapmaker U1, FlashForge AD5X, Prusa Core One and a Klipper Qidi X-Plus 4" />
 
@@ -101,18 +101,20 @@ catalogue counts about 380 models from about 60 makers.
 | [Bambu Lab](../compatibility/bambu-lab.md) (X1, P1, P2S, A1, H2…) | Bambu cloud, or LAN (MQTT over TLS) | **Yes** — printing through the cloud (P2S), idle in LAN mode (X1C, A1) |
 | [Creality](../compatibility/creality.md) (K2, K1, Hi, Ender-3 V4…) | WebSocket on the LAN | **Yes** — printing (K2), idle with its CFS (Ender-3 V4) |
 | [Snapmaker](../compatibility/snapmaker.md) U1 | Moonraker WebSocket | **Yes** — idle, four tool heads |
-| [FlashForge](../compatibility/flashforge.md) (AD5X, Adventurer 5M, Creator 5) | HTTP on the LAN | **Yes** — idle (AD5X) |
-| [Anycubic](../compatibility/anycubic.md) (Kobra 3, Kobra X, Kobra S1…) | Anycubic cloud, or LAN (MQTT over TLS) | **Yes** — idle through the cloud (Kobra X), with its ACE |
-| [Elegoo](../compatibility/elegoo.md) Centauri Carbon 1 and 2 | MQTT (CC2), SDCP (CC1) | Not yet |
-| **Prusa** (MK4, Core One, XL, MINI) | PrusaLink | Not yet |
-| [Klipper](../compatibility/klipper.md) — Voron, Qidi, Sovol, RatRig… | Moonraker HTTP | Against Tiger Studio's test printer only |
+| [FlashForge](../compatibility/flashforge.md) (AD5X, Adventurer 5M, Creator 5, Creator 5 Pro) | HTTP on the LAN | **Yes** — AD5X: pause, stop and the light |
+| [Anycubic](../compatibility/anycubic.md) (Kobra 3, Kobra X, Kobra S1…) | Anycubic cloud, or LAN (MQTT over TLS) | **Yes** — through the cloud (Kobra X), with its ACE: the light, pause, resume and stop |
+| [Elegoo](../compatibility/elegoo.md) Centauri Carbon 1 and 2 | MQTT (CC2), SDCP (CC1) | **Yes** — Centauri Carbon 2 and Centauri Carbon: pause, resume, stop, and the light on the CC2 |
+| **Prusa** (MK4, Core One, XL, MINI) | PrusaLink | **Yes** — progress, temperatures, pause, resume, stop |
+| [Klipper](../compatibility/klipper.md) — Voron, Qidi, Sovol, RatRig… | Moonraker HTTP | **Yes** — on a real Klipper printer: pause, resume, stop and the light |
 | **OctoPrint** — any Marlin printer behind it | OctoPrint REST API | Against Tiger Studio's test printer only |
 
-"Not yet" means written from the maker's protocol and compiled, never run on that
-machine: **a report from your printer is the most useful thing you can send.**
-Pause, resume and stop work wherever the connection takes commands (not through
-the Bambu or Anycubic cloud); the light works everywhere except Prusa, OctoPrint
-and the Centauri Carbon 1. Every field and every test is in the
+OctoPrint has only met Tiger Studio's test printer so far, and each brand has
+models nobody has tried yet: **a report from your printer is the most useful
+thing you can send.** Pause, resume and stop work wherever the connection takes
+commands (not through the Bambu cloud); the light works everywhere except Prusa,
+OctoPrint and the Centauri Carbon 1. Each brand has its own page, with its setup
+and its questions, on the [installer site](https://tigertag-project.github.io/Tiger-Touch/).
+Every field and every test is in the
 [per-brand status](https://github.com/TigerTag-Project/Tiger-Touch/blob/main/docs/PRINTER-COMPATIBILITY.md).
 
 **A printer shows "offline"?** Check its LAN mode first: it is off by default on
