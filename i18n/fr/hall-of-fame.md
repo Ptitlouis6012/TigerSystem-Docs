@@ -1,5 +1,5 @@
 ---
-sourceHash: 520919366618b391aa83b28dd2a0d76b08fe207558b57110b4e9d3ad9be4746b
+sourceHash: 4f0aebb096ebdff6096ad1206fd54e3c4f1ae976427a13361f5c1efc12db4418
 sourcePath: docs/hall-of-fame.md
 ---
 
@@ -22,30 +22,29 @@ réclamation.
 
 | Qui | Commits | Pull requests | Issues |
 |---|---|---|---|
-| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 60 | 70 | 4 |
+| **[@Ptitlouis6012](https://github.com/Ptitlouis6012)** | 78 | 70 | 3 |
 | **[@saucissefarciehumaine-prog](https://github.com/saucissefarciehumaine-prog)** | 1 | 11 | 9 |
 | **[@suchmememanyskill](https://github.com/suchmememanyskill)** | 39 | — | — |
 | **[@RP3D-S](https://github.com/RP3D-S)** | 1 | 5 | 1 |
 | **[@ennisj](https://github.com/ennisj)** | 21 | — | — |
 | **[@storm8488](https://github.com/storm8488)** | 9 | 1 | 1 |
-| **[@ImNanou](https://github.com/ImNanou)** | — | — | 5 |
+| **[@ijord](https://github.com/ijord)** | — | 2 | — |
 | **[@physicsG](https://github.com/physicsG)** | 1 | — | 2 |
 | **[@sjordan0228](https://github.com/sjordan0228)** | — | — | 2 |
 | **[@clauzet-rgb](https://github.com/clauzet-rgb)** | — | 1 | — |
 | **[@TrueFurina](https://github.com/TrueFurina)** | — | 1 | — |
 | **[@sancho0410](https://github.com/sancho0410)** | — | 1 | — |
-| **[@anupamme](https://github.com/anupamme)** | — | 1 | — |
+| **[@hitman4274](https://github.com/hitman4274)** | — | — | 1 |
 | **[@neonlyte54-alt](https://github.com/neonlyte54-alt)** | — | — | 1 |
 | **[@paxx12](https://github.com/paxx12)** | 3 | — | — |
 | **[@solide184](https://github.com/solide184)** | — | — | 1 |
 | **[@AlexandraWhiksla](https://github.com/AlexandraWhiksla)** | — | — | 1 |
+| **[@ehernandez0619-blip](https://github.com/ehernandez0619-blip)** | — | — | 1 |
 | **[@elphield](https://github.com/elphield)** | — | — | 1 |
 | **[@Exsilium122](https://github.com/Exsilium122)** | — | — | 1 |
 | **[@jbast1224](https://github.com/jbast1224)** | — | — | 1 |
 | **[@Truggy](https://github.com/Truggy)** | — | — | 1 |
 | **[@Antalysfr](https://github.com/Antalysfr)** | — | — | 1 |
-| **[@ericbenoist07](https://github.com/ericbenoist07)** | — | — | 1 |
-| **[@wintry](https://github.com/wintry)** | — | — | 1 |
 | **[@thekakester](https://github.com/thekakester)** | 1 | — | — |
 | **[@liberodark](https://github.com/liberodark)** | 1 | — | — |
 | **[@yanshay](https://github.com/yanshay)** | 1 | — | — |
