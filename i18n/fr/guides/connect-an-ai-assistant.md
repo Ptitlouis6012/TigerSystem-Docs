@@ -1,5 +1,5 @@
 ---
-sourceHash: 0e6688545912b18c6ae1fad22f64df0336134278547a6fcd2df93bfe2b92a63d
+sourceHash: b9c190202ceb9ed447ea794e9e369fdf15a51affa538edaca35cb7f3eb145c0e
 sourcePath: docs/guides/connect-an-ai-assistant.md
 ---
 
@@ -58,6 +58,27 @@ sur les offres Business, c'est un administrateur qui l'active).
 3. Connectez-vous sur tigersystem.io et cliquez **Autoriser**.
 4. Dans une nouvelle conversation, activez le connecteur et posez votre
    question.
+
+## Grok
+
+Les connecteurs personnalisés demandent une **offre Grok payante**.
+
+1. Ouvrez **grok.com/connectors → New Connector → Custom**.
+2. Nommez-le `TigerSystem` et collez l'adresse ci-dessus.
+3. Connectez-vous sur tigersystem.io et cliquez **Autoriser**.
+4. Dans une conversation, activez le connecteur TigerSystem et posez votre
+   question.
+
+## Le Chat (Mistral)
+
+Les connecteurs personnalisés sont ajoutés par un **administrateur** — sur un
+compte personnel, c'est vous.
+
+1. **Connecteurs → Ajouter un connecteur → Connecteur MCP personnalisé.**
+2. Nommez-le `TigerSystem` et collez l'adresse ci-dessus ; Le Chat détecte
+   seul la méthode de connexion (OAuth).
+3. Connectez-vous sur tigersystem.io et cliquez **Autoriser**.
+4. Dans une conversation, activez le connecteur et posez votre question.
 
 Les noms des menus changent souvent dans ces apps ; les étapes restent les
 mêmes.

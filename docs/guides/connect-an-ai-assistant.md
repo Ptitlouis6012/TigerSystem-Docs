@@ -50,6 +50,26 @@ admin enables it).
 3. Sign in on tigersystem.io and click **Allow**.
 4. In a new chat, enable the connector and ask.
 
+## Grok
+
+Custom connectors need a **paid Grok plan**.
+
+1. Open **grok.com/connectors → New Connector → Custom**.
+2. Name it `TigerSystem` and paste the address above.
+3. Sign in on tigersystem.io and click **Allow**.
+4. In a conversation, switch the TigerSystem connector on and ask.
+
+## Le Chat (Mistral)
+
+Custom connectors are added by an **administrator** — on a personal account,
+that is you.
+
+1. **Connectors → Add Connector → Custom MCP Connector.**
+2. Name it `TigerSystem` and paste the address above; Le Chat detects the
+   sign-in method (OAuth) by itself.
+3. Sign in on tigersystem.io and click **Allow**.
+4. In a conversation, enable the connector and ask.
+
 Menu names move often in these apps; the steps stay the same.
 
 ## Codex, Cursor and other desktop clients
